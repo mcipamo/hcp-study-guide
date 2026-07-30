@@ -1,0 +1,89 @@
+site_name: ROSA HCP Study Guide
+site_description: A deep-dive into how ROSA with Hosted Control Planes works — architecture, internals, and operations.
+site_author: Red Hat Managed Services SRE
+
+repo_url: https://github.com/mcipamo/hcp-study-guide
+repo_name: mcipamo/hcp-study-guide
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  favicon: assets/favicon.png
+  logo: assets/logo.png
+  palette:
+    - scheme: default
+      primary: red
+      accent: red
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+nav:
+  - Home: index.md
+  - Architecture:
+    - Overview: architecture.md
+    - Control Plane Deep Dive: control-plane.md
+    - Networking (PrivateLink & Konnectivity): networking.md
+  - How HCP Works:
+    - Cluster Lifecycle: lifecycle.md
+    - Node Scheduling & Sizing: scheduling.md
+    - Monitoring & Alerting: monitoring.md
+  - HCP vs Classic ROSA: vs-classic.md
+  - Operations Reference: operations.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mcipamo/hcp-study-guide
+  generator: false
+
+plugins:
+  - search
+
+extra_css:
+  - stylesheets/extra.css
