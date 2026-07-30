@@ -79,6 +79,28 @@
   border-radius: 8px;
 }
 
+/* Fix Mermaid node text — Material CSS overrides color inside SVG foreignObject */
+.mermaid .nodeLabel,
+.mermaid .label,
+.mermaid text,
+.mermaid .edgeLabel {
+  color: inherit !important;
+}
+
+/* Ensure white text shows inside colored Mermaid nodes */
+.mermaid foreignObject > div,
+.mermaid foreignObject p,
+.mermaid .label div {
+  color: inherit !important;
+}
+
+/* Force Mermaid SVG text to be visible */
+.mermaid svg .node rect,
+.mermaid svg .node circle,
+.mermaid svg .node polygon {
+  stroke-width: 1.5px;
+}
+
 /* Code block improvements */
 .md-typeset code {
   font-size: 0.85em;
