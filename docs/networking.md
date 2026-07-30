@@ -127,9 +127,9 @@ graph LR
     ECR -->|"private pull"| W
     CRED -->|"refreshes tokens"| ECR
 
-    style Q fill:#c62828,color:#fff
-    style ECR fill:#ff8f00,color:#fff
-    style W fill:#1565c0,color:#fff
+    style Q fill:#ffebee,color:#b71c1c
+    style ECR fill:#fff8e1,color:#e65100
+    style W fill:#e3f2fd,color:#0d47a1
 ```
 
 - Red Hat-owned CodeBuild jobs copy OCP release images from quay.io → customer ECR repositories

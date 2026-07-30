@@ -21,10 +21,10 @@ graph TD
     MC -->|"CAPI provisions\nEC2 instances via AWSMachine CRs"| DP
     MC <-->|"Konnectivity tunnel\n(PrivateLink)"| DP
 
-    style OCM fill:#6a1b9a,color:#fff,stroke:#6a1b9a
-    style SC fill:#1565c0,color:#fff,stroke:#1565c0
-    style MC fill:#2e7d32,color:#fff,stroke:#2e7d32
-    style DP fill:#e65100,color:#fff,stroke:#e65100
+    style OCM fill:#ede7f6,color:#4a148c,stroke:#7b1fa2
+    style SC fill:#e3f2fd,color:#0d47a1,stroke:#1565c0
+    style MC fill:#e8f5e9,color:#1b5e20,stroke:#2e7d32
+    style DP fill:#fff3e0,color:#bf360c,stroke:#e65100
 ```
 
 ---
@@ -167,7 +167,7 @@ graph LR
     SC1 --> MC2
     MC2 -->|"Saturation threshold\nhit → create new MC"| MC3
 
-    style FM fill:#6a1b9a,color:#fff
+    style FM fill:#ede7f6,color:#4a148c
     style MC3 fill:#fff9c4,stroke:#f57f17
 ```
 

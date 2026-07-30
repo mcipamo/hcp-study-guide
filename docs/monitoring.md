@@ -39,8 +39,8 @@ graph TB
     DPPROM --> DPFWD --> RHOBS
     RHOBS --> AM
 
-    style RHOBS fill:#6a1b9a,color:#fff
-    style AM fill:#c62828,color:#fff
+    style RHOBS fill:#ede7f6,color:#4a148c
+    style AM fill:#ffebee,color:#b71c1c
     style MC fill:#e3f2fd,stroke:#1565c0
     style DP fill:#fff3e0,stroke:#e65100
 ```
@@ -95,7 +95,7 @@ graph LR
     PROM -->|"remote_write"| SEND
     SEND -->|"pushes metrics"| RHOBS["RHOBS"]
 
-    style RHOBS fill:#6a1b9a,color:#fff
+    style RHOBS fill:#ede7f6,color:#4a148c
 ```
 
 The `MonitoringStack` CR configures:
@@ -152,10 +152,10 @@ graph LR
     AM -->|"severity: warning"| PD_LOW
     RHOBS -->|"heartbeat"| DEAD
 
-    style RHOBS fill:#6a1b9a,color:#fff
-    style AM fill:#c62828,color:#fff
-    style PD_HIGH fill:#c62828,color:#fff
-    style PD_LOW fill:#e65100,color:#fff
+    style RHOBS fill:#ede7f6,color:#4a148c
+    style AM fill:#ffebee,color:#b71c1c
+    style PD_HIGH fill:#ffebee,color:#b71c1c
+    style PD_LOW fill:#fff3e0,color:#bf360c
 ```
 
 ### Alert Rule Categories

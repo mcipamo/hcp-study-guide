@@ -228,10 +228,10 @@ graph TD
     M -->|"creates"| AM
     AM -->|"provisions"| EC2
 
-    style HC fill:#6a1b9a,color:#fff
-    style HCP2 fill:#2e7d32,color:#fff
-    style NP fill:#1565c0,color:#fff
-    style EC2 fill:#e65100,color:#fff
+    style HC fill:#ede7f6,color:#4a148c
+    style HCP2 fill:#e8f5e9,color:#1b5e20
+    style NP fill:#e3f2fd,color:#0d47a1
+    style EC2 fill:#fff3e0,color:#bf360c
 ```
 
 ---
