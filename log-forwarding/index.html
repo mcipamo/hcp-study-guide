@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../upgrade-architecture/">
+        <link rel="prev" href="../monitoring/">
       
       
-        <link rel="next" href="../log-forwarding/">
+        <link rel="next" href="../billing/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Monitoring & Alerting - ROSA HCP Study Guide</title>
+        <title>Log Forwarding - ROSA HCP Study Guide</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitoring-alerting" class="md-skip">
+        <a href="#log-forwarding" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Monitoring & Alerting
+              Log Forwarding
             
           </span>
         </div>
@@ -727,6 +727,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring & Alerting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -746,7 +774,7 @@
   <span class="md-ellipsis">
     
   
-    Monitoring & Alerting
+    Log Forwarding
   
 
     
@@ -764,7 +792,7 @@
   <span class="md-ellipsis">
     
   
-    Monitoring & Alerting
+    Log Forwarding
   
 
     
@@ -790,10 +818,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rhobs-the-centralized-metrics-store" class="md-nav__link">
+  <a href="#architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RHOBS: The Centralized Metrics Store
+        Architecture
       
     </span>
   </a>
@@ -801,22 +829,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#three-metric-sources" class="md-nav__link">
+  <a href="#stage-1-on-cluster-collection-vector" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Three Metric Sources
+        Stage 1: On-Cluster Collection (Vector)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Three Metric Sources">
+    <nav class="md-nav" aria-label="Stage 1: On-Cluster Collection (Vector)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metric-labels-for-querying" class="md-nav__link">
+  <a href="#key-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Metric Labels for Querying
+        Key Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#irsa-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IRSA Authentication
       
     </span>
   </a>
@@ -829,10 +868,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#observability-operator-obo-and-monitoringstack" class="md-nav__link">
+  <a href="#stage-2-distribution-rosa-log-router" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observability Operator (OBO) and MonitoringStack
+        Stage 2: Distribution (rosa-log-router)
       
     </span>
   </a>
@@ -840,10 +879,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-plane-metrics-the-push-model" class="md-nav__link">
+  <a href="#ownership" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data Plane Metrics: The Push Model
+        Ownership
       
     </span>
   </a>
@@ -851,33 +890,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alerting-architecture" class="md-nav__link">
+  <a href="#vector-alerts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alerting Architecture
+        Vector Alerts
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Alerting Architecture">
+    <nav class="md-nav" aria-label="Vector Alerts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#alert-rule-categories" class="md-nav__link">
+  <a href="#common-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Rule Categories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-severity-routing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Severity Routing
+        Common Issues
       
     </span>
   </a>
@@ -890,44 +918,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alert-graduation-pipeline" class="md-nav__link">
+  <a href="#troubleshooting-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Graduation Pipeline
+        Troubleshooting Commands
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automatic-alert-suppression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic Alert Suppression
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#querying-metrics-in-rhobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Querying Metrics in RHOBS
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Querying Metrics in RHOBS">
+    <nav class="md-nav" aria-label="Troubleshooting Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#useful-queries" class="md-nav__link">
+  <a href="#checking-sink-utilization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Useful Queries
+        Checking Sink Utilization
       
     </span>
   </a>
@@ -936,6 +942,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#telemetry-correlation-dashboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Telemetry &amp; Correlation Dashboards
+      
+    </span>
+  </a>
   
 </li>
       
@@ -943,34 +960,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../log-forwarding/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Log Forwarding
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1379,10 +1368,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rhobs-the-centralized-metrics-store" class="md-nav__link">
+  <a href="#architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RHOBS: The Centralized Metrics Store
+        Architecture
       
     </span>
   </a>
@@ -1390,22 +1379,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#three-metric-sources" class="md-nav__link">
+  <a href="#stage-1-on-cluster-collection-vector" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Three Metric Sources
+        Stage 1: On-Cluster Collection (Vector)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Three Metric Sources">
+    <nav class="md-nav" aria-label="Stage 1: On-Cluster Collection (Vector)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metric-labels-for-querying" class="md-nav__link">
+  <a href="#key-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Metric Labels for Querying
+        Key Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#irsa-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IRSA Authentication
       
     </span>
   </a>
@@ -1418,10 +1418,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#observability-operator-obo-and-monitoringstack" class="md-nav__link">
+  <a href="#stage-2-distribution-rosa-log-router" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observability Operator (OBO) and MonitoringStack
+        Stage 2: Distribution (rosa-log-router)
       
     </span>
   </a>
@@ -1429,10 +1429,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-plane-metrics-the-push-model" class="md-nav__link">
+  <a href="#ownership" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data Plane Metrics: The Push Model
+        Ownership
       
     </span>
   </a>
@@ -1440,33 +1440,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alerting-architecture" class="md-nav__link">
+  <a href="#vector-alerts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alerting Architecture
+        Vector Alerts
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Alerting Architecture">
+    <nav class="md-nav" aria-label="Vector Alerts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#alert-rule-categories" class="md-nav__link">
+  <a href="#common-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Rule Categories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-severity-routing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Severity Routing
+        Common Issues
       
     </span>
   </a>
@@ -1479,44 +1468,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alert-graduation-pipeline" class="md-nav__link">
+  <a href="#troubleshooting-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Graduation Pipeline
+        Troubleshooting Commands
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automatic-alert-suppression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic Alert Suppression
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#querying-metrics-in-rhobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Querying Metrics in RHOBS
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Querying Metrics in RHOBS">
+    <nav class="md-nav" aria-label="Troubleshooting Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#useful-queries" class="md-nav__link">
+  <a href="#checking-sink-utilization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Useful Queries
+        Checking Sink Utilization
       
     </span>
   </a>
@@ -1525,6 +1492,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#telemetry-correlation-dashboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Telemetry &amp; Correlation Dashboards
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1596,272 +1574,276 @@
   
 
 
-<h1 id="monitoring-alerting">Monitoring &amp; Alerting<a class="headerlink" href="#monitoring-alerting" title="Permanent link">&para;</a></h1>
-<p>In Classic ROSA, each cluster has its own Prometheus instance. With HCP, this model doesn't scale — 80+ HCPs per Management Cluster would mean 80+ Prometheus stacks. Instead, HCP uses a <strong>centralized observability service</strong>: RHOBS.</p>
+<h1 id="log-forwarding">Log Forwarding<a class="headerlink" href="#log-forwarding" title="Permanent link">&para;</a></h1>
+<p>ROSA HCP has a two-stage log forwarding pipeline that collects control plane logs from HCP pods on management clusters and delivers them to customer-owned S3 buckets and CloudWatch Log Groups.</p>
 <hr />
-<h2 id="rhobs-the-centralized-metrics-store">RHOBS: The Centralized Metrics Store<a class="headerlink" href="#rhobs-the-centralized-metrics-store" title="Permanent link">&para;</a></h2>
-<p><strong>RHOBS</strong> (Red Hat Observability Service) is a multi-tenant, globally-scoped Prometheus-compatible metrics backend. All HCP metrics from all clusters — Management Cluster, HCPs, and Data Planes — flow there.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>graph TB
     subgraph MC["Management Cluster"]
-        MCPROM["Prometheus\n(MC self-monitoring)"]
-        MCFWD["MonitoringStack CR\nOBO metrics pipeline"]
+        HCPPODS["HCP Pods\n(/var/log/containers)"]
+        VECTOR["Vector DaemonSet\n(on MC worker nodes)"]
+        S3C["Central S3 Bucket\n(per region, per env)"]
     end
 
-    subgraph HCP1["HCP Namespace 1"]
-        HCP1PROM["Prometheus\n(HCP-level metrics)"]
-        HCP1FWD["MonitoringStack CR"]
+    subgraph Distribution["Distribution Pipeline (rosa-log-router)"]
+        SNS["SNS Topic"]
+        SQS["SQS Queue"]
+        LAMBDA["Lambda Function"]
     end
 
-    subgraph HCP2["HCP Namespace 2"]
-        HCP2PROM["Prometheus\n(HCP-level metrics)"]
-        HCP2FWD["MonitoringStack CR"]
+    subgraph Customer["Customer Destinations"]
+        CS3["Customer S3 Bucket"]
+        CW["Customer CloudWatch\nLog Group"]
     end
 
-    subgraph DP["Data Plane (Customer AWS)"]
-        DPPROM["Prometheus\n(worker node / workload metrics)"]
-        DPFWD["metrics-forwarder\nDaemonSet + proxy"]
-    end
+    HCPPODS --&gt;|"kubernetes_logs source"| VECTOR
+    VECTOR --&gt;|"enrich + parse + buffer"| S3C
+    S3C --&gt;|"S3 event trigger"| SNS
+    SNS --&gt; SQS
+    SQS --&gt; LAMBDA
+    LAMBDA --&gt; CS3
+    LAMBDA --&gt; CW
 
-    RHOBS[("RHOBS\nCentralized Store\n(Thanos Receive)")]
-    AM["RHOBS Alertmanager\n→ PagerDuty"]
-
-    MCPROM --&gt; MCFWD --&gt; RHOBS
-    HCP1PROM --&gt; HCP1FWD --&gt; RHOBS
-    HCP2PROM --&gt; HCP2FWD --&gt; RHOBS
-    DPPROM --&gt; DPFWD --&gt; RHOBS
-    RHOBS --&gt; AM
-
-    style RHOBS fill:#ede7f6,color:#4a148c
-    style AM fill:#ffebee,color:#b71c1c
-    style MC fill:#e3f2fd,stroke:#1565c0
-    style DP fill:#fff3e0,stroke:#e65100</code></pre>
+    style VECTOR fill:#e3f2fd,color:#0d47a1
+    style S3C fill:#ede7f6,color:#4a148c
+    style LAMBDA fill:#e8f5e9,color:#1b5e20
+    style CS3 fill:#fff3e0,color:#bf360c
+    style CW fill:#fff3e0,color:#bf360c</code></pre>
 <hr />
-<h2 id="three-metric-sources">Three Metric Sources<a class="headerlink" href="#three-metric-sources" title="Permanent link">&para;</a></h2>
-<p>Each HCP has metrics flowing from <strong>three distinct sources</strong>:</p>
+<h2 id="stage-1-on-cluster-collection-vector">Stage 1: On-Cluster Collection (Vector)<a class="headerlink" href="#stage-1-on-cluster-collection-vector" title="Permanent link">&para;</a></h2>
+<p>Vector runs as a DaemonSet on MC worker nodes. Its pipeline:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>HCP Pods (/var/log/containers)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  → kubernetes_logs source
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  → enrich_metadata transform (namespace, pod, container labels)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  → parse_json_logs transform (timestamps from JSON logs)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  → parse_plain_text_timestamps transform
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  → cluster_metrics transform (per-cluster counter metric)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  → hcp_logs sink (writes to central S3 with disk buffer)
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  → prometheus exporter (port 9598)
+</span></code></pre></div>
+<h3 id="key-configuration">Key Configuration<a class="headerlink" href="#key-configuration" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Source</th>
-<th>What it measures</th>
-<th>Label added</th>
+<th>Parameter</th>
+<th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Management Cluster</strong></td>
-<td>kube-apiserver pod CPU/memory, etcd performance, component health</td>
-<td><code>_mc_id="hs-mc-xxxxx"</code></td>
+<td>Buffer location</td>
+<td><code>/var/lib/vector-data</code> (hostPath on node)</td>
 </tr>
 <tr>
-<td><strong>HCP level</strong></td>
-<td>per-HCP control plane component metrics (kube-apiserver request rates, etcd leader changes)</td>
-<td><code>_id="customer-cluster-id"</code></td>
+<td>Buffer max size</td>
+<td>10GB</td>
 </tr>
 <tr>
-<td><strong>Data Plane</strong></td>
-<td>worker node CPU/memory, kubelet metrics, custom workload metrics</td>
-<td><code>_id="customer-cluster-id"</code>, <code>source="customer"</code></td>
+<td>Overflow behavior</td>
+<td><code>block</code> — stops collection when full</td>
+</tr>
+<tr>
+<td>S3 batch size</td>
+<td>50MB max, 60s timeout</td>
+</tr>
+<tr>
+<td>S3 compression</td>
+<td>gzip</td>
+</tr>
+<tr>
+<td>S3 path</td>
+<td><code>{mc_cluster_id}/{namespace}/{pod_name}/{container_name}/</code></td>
+</tr>
+<tr>
+<td>Retry</td>
+<td>3 attempts, 1–30s exponential backoff</td>
 </tr>
 </tbody>
 </table>
-<h3 id="metric-labels-for-querying">Metric Labels for Querying<a class="headerlink" href="#metric-labels-for-querying" title="Permanent link">&para;</a></h3>
-<p>All metrics in RHOBS are tagged with these labels:</p>
-<div class="language-promql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Example: find all metrics from a specific HCP</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123def456</span><span class="p">&quot;}</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Example: find all metrics from a specific MC</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span><span class="nl">_mc_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">hs-mc-1sek0vq5g</span><span class="p">&quot;}</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Example: find all metrics from a region</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123</span><span class="p">&quot;,</span><span class="w"> </span><span class="nl">region</span><span class="o">=</span><span class="p">&quot;</span><span class="s">us-east-1</span><span class="p">&quot;}</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Example: find data plane metrics only</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123</span><span class="p">&quot;,</span><span class="w"> </span><span class="nl">source</span><span class="o">=</span><span class="p">&quot;</span><span class="s">customer</span><span class="p">&quot;}</span>
+<h3 id="irsa-authentication">IRSA Authentication<a class="headerlink" href="#irsa-authentication" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ServiceAccount (IRSA annotation)
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  → OIDC provider (AssumeRoleWithWebIdentity)
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  → MC IAM role
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  → AssumeRole to S3 writer role
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  → S3 PutObject
 </span></code></pre></div>
 <hr />
-<h2 id="observability-operator-obo-and-monitoringstack">Observability Operator (OBO) and MonitoringStack<a class="headerlink" href="#observability-operator-obo-and-monitoringstack" title="Permanent link">&para;</a></h2>
-<p>The <strong>Observability Operator (OBO)</strong> manages the metrics pipeline within each HCP namespace using a <code>MonitoringStack</code> CR.</p>
-<pre class="mermaid"><code>graph LR
-    OBO["Observability Operator\n(on MC)"]
-    MS["MonitoringStack CR\n(in HCP namespace)"]
-    PROM["Prometheus\n(in HCP namespace)"]
-    RULE["PrometheusRule CRs\n(alert rules)"]
-    SEND["RemoteWrite\n→ RHOBS endpoint"]
-
-    OBO --&gt;|"reconciles"| MS
-    MS --&gt;|"deploys"| PROM
-    PROM --&gt;|"scrapes"| RULE
-    PROM --&gt;|"remote_write"| SEND
-    SEND --&gt;|"pushes metrics"| RHOBS["RHOBS"]
-
-    style RHOBS fill:#ede7f6,color:#4a148c</code></pre>
-<p>The <code>MonitoringStack</code> CR configures:
-- Prometheus retention (usually short — data is pushed, not stored)
-- RemoteWrite endpoint (RHOBS ingress URL + auth token)
-- Scrape targets (the HCP components)</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># View MonitoringStack in an HCP namespace</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>oc<span class="w"> </span>get<span class="w"> </span>monitoringstack<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NS</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>oc<span class="w"> </span>describe<span class="w"> </span>monitoringstack<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NS</span><span class="w"> </span><span class="nv">$STACK_NAME</span>
-</span></code></pre></div>
-<hr />
-<h2 id="data-plane-metrics-the-push-model">Data Plane Metrics: The Push Model<a class="headerlink" href="#data-plane-metrics-the-push-model" title="Permanent link">&para;</a></h2>
-<p>Worker node metrics can't be pulled by RHOBS (the DP is in a separate VPC). Instead, a <strong>push model</strong> over PrivateLink is used.</p>
-<pre class="mermaid"><code>sequenceDiagram
-    participant PROM as Prometheus&lt;br/&gt;(on worker nodes)
-    participant MF as metrics-forwarder&lt;br/&gt;(DaemonSet on workers)
-    participant PL as PrivateLink Proxy&lt;br/&gt;(in customer VPC)
-    participant RHOBS as RHOBS Ingestor
-
-    PROM-&gt;&gt;MF: Scrape + buffer metrics
-    MF-&gt;&gt;PL: HTTPS POST (remote_write) via PrivateLink
-    PL-&gt;&gt;RHOBS: Forward to RHOBS ingestion endpoint
-    RHOBS--&gt;&gt;MF: 204 OK</code></pre>
+<h2 id="stage-2-distribution-rosa-log-router">Stage 2: Distribution (rosa-log-router)<a class="headerlink" href="#stage-2-distribution-rosa-log-router" title="Permanent link">&para;</a></h2>
+<p>A Lambda-based pipeline distributes from the central S3 bucket to customer destinations:</p>
 <ul>
-<li><code>metrics-forwarder</code> runs as a DaemonSet on worker nodes</li>
-<li>Each forwarder has a certificate provisioned via the hosted cluster's CA</li>
-<li>Traffic routes through the same PrivateLink endpoint used by the kubelet</li>
-<li>Zero egress clusters use this exclusively — no internet access required</li>
+<li><strong>S3-to-S3 copy</strong> with <code>bucket-owner-full-control</code> ACL</li>
+<li><strong>CloudWatch Log Group</strong> delivery</li>
 </ul>
 <hr />
-<h2 id="alerting-architecture">Alerting Architecture<a class="headerlink" href="#alerting-architecture" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>graph LR
-    RHOBS[("RHOBS\n(Thanos Ruler)")]
-    RULES["Alert Rule Files\n(stored in RHOBS)"]
-    AM["RHOBS Alertmanager"]
-    PD_HIGH["PagerDuty\n(Critical Team)"]
-    PD_LOW["PagerDuty\n(Warning Team)"]
-    DEAD["Dead Man's Switch\n(always-firing alert)"]
-
-    RHOBS --&gt;|"evaluate rules"| RULES
-    RULES --&gt;|"fire alerts"| AM
-    AM --&gt;|"severity: critical"| PD_HIGH
-    AM --&gt;|"severity: warning"| PD_LOW
-    RHOBS --&gt;|"heartbeat"| DEAD
-
-    style RHOBS fill:#ede7f6,color:#4a148c
-    style AM fill:#ffebee,color:#b71c1c
-    style PD_HIGH fill:#ffebee,color:#b71c1c
-    style PD_LOW fill:#fff3e0,color:#bf360c</code></pre>
-<h3 id="alert-rule-categories">Alert Rule Categories<a class="headerlink" href="#alert-rule-categories" title="Permanent link">&para;</a></h3>
+<h2 id="ownership">Ownership<a class="headerlink" href="#ownership" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Category</th>
-<th>File Pattern</th>
-<th>Examples</th>
+<th>Component</th>
+<th>Owner</th>
+<th>Repository</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Cluster health</td>
-<td><code>cluster-*.yaml</code></td>
-<td><code>HostedClusterAvailable</code>, <code>HostedClusterDegraded</code></td>
+<td>Vector DaemonSet + config</td>
+<td>OSD Fleet Manager</td>
+<td>osd-fleet-manager</td>
 </tr>
 <tr>
-<td>etcd</td>
-<td><code>etcd-*.yaml</code></td>
-<td><code>EtcdHighNumberOfLeaderChanges</code>, <code>EtcdNoLeader</code></td>
+<td>Monitoring alerts</td>
+<td>SREP Observability</td>
+<td>managed-cluster-config</td>
 </tr>
 <tr>
-<td>API server</td>
-<td><code>kube-apiserver-*.yaml</code></td>
-<td><code>KubeAPIErrorBudgetBurn</code>, <code>KubeAPILatencyHigh</code></td>
-</tr>
-<tr>
-<td>Node pool</td>
-<td><code>nodepool-*.yaml</code></td>
-<td><code>NodePoolDegraded</code>, <code>NodePoolNotScaling</code></td>
-</tr>
-<tr>
-<td>Konnectivity</td>
-<td><code>konnectivity-*.yaml</code></td>
-<td><code>KonnectivityServerDown</code></td>
-</tr>
-<tr>
-<td>Capacity</td>
-<td><code>capacity-*.yaml</code></td>
-<td><code>RequestServingNodePoolLow</code></td>
+<td>Distribution pipeline</td>
+<td>SDE</td>
+<td>rosa-log-router</td>
 </tr>
 </tbody>
 </table>
-<h3 id="alert-severity-routing">Alert Severity Routing<a class="headerlink" href="#alert-severity-routing" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="vector-alerts">Vector Alerts<a class="headerlink" href="#vector-alerts" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
+<th>Alert</th>
 <th>Severity</th>
-<th>PagerDuty team</th>
-<th>Response SLA</th>
+<th>What It Detects</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>critical</code></td>
-<td>On-call (24/7)</td>
-<td>Immediate</td>
+<td><code>VectorPodDownSRE</code></td>
+<td>warning</td>
+<td>Vector pods unreachable</td>
 </tr>
 <tr>
-<td><code>warning</code></td>
-<td>Engineering</td>
-<td>Business hours</td>
+<td><code>VectorMetricsAbsentSRE</code></td>
+<td>warning</td>
+<td>No Vector metrics in Prometheus</td>
 </tr>
 <tr>
-<td><code>info</code></td>
-<td>(no page)</td>
-<td>Dashboards only</td>
+<td><code>VectorNoLogsIngestedSRE</code></td>
+<td>warning</td>
+<td>Zero log collection rate</td>
+</tr>
+<tr>
+<td><code>VectorS3WritesStoppedSRE</code></td>
+<td>warning</td>
+<td>Zero S3 write rate</td>
+</tr>
+<tr>
+<td><code>VectorBufferNearCapacitySRE</code></td>
+<td>warning</td>
+<td>Buffer &gt;70% full</td>
+</tr>
+<tr>
+<td><code>VectorBufferGrowingRapidlySRE</code></td>
+<td>warning</td>
+<td>Buffer growing &gt;100MB/min</td>
+</tr>
+<tr>
+<td><code>VectorS3ErrorsSRE</code></td>
+<td>warning</td>
+<td>S3 write errors</td>
+</tr>
+<tr>
+<td><code>VectorClusterExcessiveLogsSRE</code></td>
+<td>warning</td>
+<td>Cluster &gt;2000 events/sec</td>
+</tr>
+</tbody>
+</table>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely Cause</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All pods CrashLoopBackOff</td>
+<td>S3 bucket missing or IRSA broken (healthcheck fails with <code>VECTOR_REQUIRE_HEALTHY=true</code>)</td>
+</tr>
+<tr>
+<td>No metrics in Prometheus</td>
+<td>PodMonitor/RBAC missing or OSDFM deployment incomplete</td>
+</tr>
+<tr>
+<td>S3 write errors</td>
+<td>IRSA permissions, bucket policy, or S3 throttling</td>
+</tr>
+<tr>
+<td>Buffer filling</td>
+<td>S3 writes slower than ingestion (throttling, connectivity)</td>
+</tr>
+<tr>
+<td>Concurrency collapse</td>
+<td>CPU throttling causes adaptive concurrency to collapse to 1</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="alert-graduation-pipeline">Alert Graduation Pipeline<a class="headerlink" href="#alert-graduation-pipeline" title="Permanent link">&para;</a></h2>
-<p>New alerts don't go directly to <code>critical</code>. They go through a graduation pipeline to reduce alert fatigue:</p>
-<pre class="mermaid"><code>graph LR
-    SOAK["Soaking\n(monitoring only,\nnot paging)"]
-    WARN["Warning\n(pages warning team)"]
-    CRIT["Critical\n(pages on-call)"]
-
-    SOAK --&gt;|"No false positives\nafter 2 weeks"| WARN
-    WARN --&gt;|"Actionable + reliable\nafter 2 weeks"| CRIT
-    WARN --&gt;|"False positive"| SOAK</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Before escalating an alert issue</p>
-<p>Check if the alert is in soaking or warning phase — it may be a known-unreliable alert that's being tuned.</p>
-</div>
-<hr />
-<h2 id="automatic-alert-suppression">Automatic Alert Suppression<a class="headerlink" href="#automatic-alert-suppression" title="Permanent link">&para;</a></h2>
-<p>When a cluster is intentionally degraded (e.g., during maintenance), alerts can be automatically suppressed:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Suppress all alerts for a cluster</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>oc<span class="w"> </span>annotate<span class="w"> </span>hostedcluster<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HC_NS</span><span class="w"> </span><span class="nv">$CLUSTER_NAME</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>hypershift.openshift.io/disable-cluster-alerts<span class="o">=</span><span class="nb">true</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Remove suppression</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>oc<span class="w"> </span>annotate<span class="w"> </span>hostedcluster<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HC_NS</span><span class="w"> </span><span class="nv">$CLUSTER_NAME</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span>hypershift.openshift.io/disable-cluster-alerts-
+<h2 id="troubleshooting-commands">Troubleshooting Commands<a class="headerlink" href="#troubleshooting-commands" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Check Vector pod status on MC</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>hypershift-control-plane-log-forwarding<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>control-plane-log-forwarding
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Get Vector logs (use RHOBS since debug handlers disabled on MC workers)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nv">PODNAME</span><span class="o">=</span><span class="k">$(</span>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>hypershift-control-plane-log-forwarding<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>control-plane-log-forwarding<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.items[0].metadata.name}&#39;</span><span class="k">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>osdctl<span class="w"> </span>rhobs<span class="w"> </span>logs<span class="w"> </span>-C<span class="w"> </span><span class="nv">$MC_CLUSTER_ID</span><span class="w"> </span>-n<span class="w"> </span>hypershift-control-plane-log-forwarding<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nv">$PODNAME</span><span class="w"> </span>--since<span class="w"> </span>1h
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Check IRSA annotation</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>oc<span class="w"> </span>get<span class="w"> </span>sa<span class="w"> </span>control-plane-log-forwarding<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span>-n<span class="w"> </span>hypershift-control-plane-log-forwarding<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.metadata.annotations.eks\.amazonaws\.com/role-arn}&#39;</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1"># Check S3 bucket name</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>oc<span class="w"> </span>get<span class="w"> </span>configmap<span class="w"> </span>vector-config<span class="w"> </span>-n<span class="w"> </span>hypershift-control-plane-log-forwarding<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">  </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>bucket
 </span></code></pre></div>
-<p>When <code>hypershift_cluster_alerts_disabled</code> metric is <code>1</code>, the RHOBS Alertmanager inhibition rules suppress all HCP-specific alerts for that cluster.</p>
-<hr />
-<h2 id="querying-metrics-in-rhobs">Querying Metrics in RHOBS<a class="headerlink" href="#querying-metrics-in-rhobs" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Via Grafana (preferred for dashboards)</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># Use the RHOBS Grafana instance for your environment</span>
+<h3 id="checking-sink-utilization">Checking Sink Utilization<a class="headerlink" href="#checking-sink-utilization" title="Permanent link">&para;</a></h3>
+<div class="language-promql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Utilization per pod (0.0 = idle, 1.0 = saturated)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">vector_utilization</span><span class="p">{</span><span class="nl">component_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">hcp_logs</span><span class="p">&quot;}</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Via promtool / curl (for quick checks)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="s2">&quot;https://rhobs.example.com/api/v1/query?query=up{_id=&#39;</span><span class="nv">$CLUSTER_ID</span><span class="s2">&#39;}&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Adaptive concurrency limit (should be 3+ on busy pods)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kr">histogram_quantile</span><span class="o">(</span><span class="mf">0.5</span><span class="p">,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="kr">rate</span><span class="o">(</span><span class="nv">vector_adaptive_concurrency_limit_bucket</span><span class="p">{</span><span class="nl">component_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">hcp_logs</span><span class="p">&quot;}[</span><span class="s">5m</span><span class="p">]</span><span class="o">))</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># In-flight requests</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kr">histogram_quantile</span><span class="o">(</span><span class="mf">0.99</span><span class="p">,</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="kr">rate</span><span class="o">(</span><span class="nv">vector_adaptive_concurrency_in_flight_bucket</span><span class="p">{</span><span class="nl">component_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">hcp_logs</span><span class="p">&quot;}[</span><span class="s">5m</span><span class="p">]</span><span class="o">))</span>
 </span></code></pre></div>
-<h3 id="useful-queries">Useful Queries<a class="headerlink" href="#useful-queries" title="Permanent link">&para;</a></h3>
-<div class="language-promql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Is the HCP available?</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">hypershift_cluster_available</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># etcd leader changes in the last hour</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kr">increase</span><span class="o">(</span><span class="nv">etcd_server_leader_changes_seen_total</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}[</span><span class="s">1h</span><span class="p">]</span><span class="o">)</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># kube-apiserver request latency (p99)</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kr">histogram_quantile</span><span class="o">(</span><span class="mf">0.99</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">(</span><span class="nv">le</span><span class="o">)</span><span class="w"> </span><span class="o">(</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="kr">rate</span><span class="o">(</span><span class="nv">apiserver_request_duration_seconds_bucket</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}[</span><span class="s">5m</span><span class="p">]</span><span class="o">)</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="o">))</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Worker node memory usage</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="k">sum</span><span class="o">(</span><span class="nv">node_memory_MemUsed_bytes</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}</span><span class="o">)</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">(</span><span class="nv">instance</span><span class="o">)</span>
-</span></code></pre></div>
+<hr />
+<h2 id="telemetry-correlation-dashboards">Telemetry &amp; Correlation Dashboards<a class="headerlink" href="#telemetry-correlation-dashboards" title="Permanent link">&para;</a></h2>
+<p>In addition to log forwarding, OCM Cluster Service emits structured telemetry events for day-1 and day-2 operations. These correlation dashboards allow tracing operations through OCM → SC → MC → components:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Dashboard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Installation</strong></td>
+<td><a href="https://grafana.app-sre.devshift.net/d/fdmk9z8ucodtsa/?orgId=1">Drill Down: ROSA HCP Cluster Creation</a></td>
+</tr>
+<tr>
+<td><strong>NodePool Changes</strong></td>
+<td><a href="https://grafana.app-sre.devshift.net/d/cdtg6ugw1a03ka/?orgId=1">Drill Down: ROSA HCP Nodepools</a></td>
+</tr>
+<tr>
+<td><strong>Control Plane Upgrades</strong></td>
+<td><a href="https://grafana.app-sre.devshift.net/d/bcb1715d8bfc40da/?orgId=1">Drill Down: ROSA HCP Cluster Upgrades - Control Plane</a></td>
+</tr>
+</tbody>
+</table>
+<p>These dashboards provide both fleet-wide visibility and per-cluster drill-down — useful for determining if a problem is isolated to a single cluster or part of a broader pattern.</p>
 
 
 

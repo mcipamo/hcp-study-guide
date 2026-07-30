@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../upgrade-architecture/">
+        <link rel="prev" href="../log-forwarding/">
       
       
-        <link rel="next" href="../log-forwarding/">
+        <link rel="next" href="../operations/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Monitoring & Alerting - ROSA HCP Study Guide</title>
+        <title>Billing - ROSA HCP Study Guide</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitoring-alerting" class="md-skip">
+        <a href="#rosa-hcp-billing" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Monitoring & Alerting
+              Billing
             
           </span>
         </div>
@@ -727,37 +727,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Monitoring & Alerting
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
         
   
   
@@ -773,176 +746,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#rhobs-the-centralized-metrics-store" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RHOBS: The Centralized Metrics Store
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#three-metric-sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Three Metric Sources
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Three Metric Sources">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#metric-labels-for-querying" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Metric Labels for Querying
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#observability-operator-obo-and-monitoringstack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Observability Operator (OBO) and MonitoringStack
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-plane-metrics-the-push-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Plane Metrics: The Push Model
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alerting-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alerting Architecture
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alerting Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alert-rule-categories" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Rule Categories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-severity-routing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Severity Routing
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alert-graduation-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Graduation Pipeline
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automatic-alert-suppression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic Alert Suppression
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#querying-metrics-in-rhobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Querying Metrics in RHOBS
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Querying Metrics in RHOBS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-queries" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Queries
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -980,10 +783,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../billing/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Billing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -999,6 +829,148 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#billing-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Billing Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metering-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metering Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metering Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-metric-source-hypershift-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Metric Source — HyperShift Operator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-telemeter-recording-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Telemeter Recording Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-subwatch-swatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: SubWatch (swatch)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account-linking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Account Linking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Account Linking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#private-offers-contracts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Private Offers (Contracts)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-subwatch-accumulates-and-remits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How SubWatch Accumulates and Remits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#billing-alerts-and-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Billing Alerts and Reliability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-billing-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Billing Issues
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1379,10 +1351,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rhobs-the-centralized-metrics-store" class="md-nav__link">
+  <a href="#billing-components" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RHOBS: The Centralized Metrics Store
+        Billing Components
       
     </span>
   </a>
@@ -1390,22 +1362,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#three-metric-sources" class="md-nav__link">
+  <a href="#metering-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Three Metric Sources
+        Metering Pipeline
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Three Metric Sources">
+    <nav class="md-nav" aria-label="Metering Pipeline">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metric-labels-for-querying" class="md-nav__link">
+  <a href="#step-1-metric-source-hypershift-operator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Metric Labels for Querying
+        Step 1: Metric Source — HyperShift Operator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-telemeter-recording-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Telemeter Recording Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-subwatch-swatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: SubWatch (swatch)
       
     </span>
   </a>
@@ -1418,55 +1412,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#observability-operator-obo-and-monitoringstack" class="md-nav__link">
+  <a href="#account-linking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observability Operator (OBO) and MonitoringStack
+        Account Linking
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-plane-metrics-the-push-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Plane Metrics: The Push Model
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alerting-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alerting Architecture
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alerting Architecture">
+    <nav class="md-nav" aria-label="Account Linking">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#alert-rule-categories" class="md-nav__link">
+  <a href="#private-offers-contracts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Rule Categories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-severity-routing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Severity Routing
+        Private Offers (Contracts)
       
     </span>
   </a>
@@ -1479,10 +1440,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alert-graduation-pipeline" class="md-nav__link">
+  <a href="#how-subwatch-accumulates-and-remits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Graduation Pipeline
+        How SubWatch Accumulates and Remits
       
     </span>
   </a>
@@ -1490,10 +1451,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-alert-suppression" class="md-nav__link">
+  <a href="#billing-alerts-and-reliability" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automatic Alert Suppression
+        Billing Alerts and Reliability
       
     </span>
   </a>
@@ -1501,30 +1462,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#querying-metrics-in-rhobs" class="md-nav__link">
+  <a href="#troubleshooting-billing-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Querying Metrics in RHOBS
+        Troubleshooting Billing Issues
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Querying Metrics in RHOBS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-queries" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Queries
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1596,272 +1540,190 @@
   
 
 
-<h1 id="monitoring-alerting">Monitoring &amp; Alerting<a class="headerlink" href="#monitoring-alerting" title="Permanent link">&para;</a></h1>
-<p>In Classic ROSA, each cluster has its own Prometheus instance. With HCP, this model doesn't scale — 80+ HCPs per Management Cluster would mean 80+ Prometheus stacks. Instead, HCP uses a <strong>centralized observability service</strong>: RHOBS.</p>
+<h1 id="rosa-hcp-billing">ROSA HCP Billing<a class="headerlink" href="#rosa-hcp-billing" title="Permanent link">&para;</a></h1>
+<p>ROSA HCP uses a consumption-based billing model measured via Prometheus metrics and remitted through AWS Marketplace.</p>
 <hr />
-<h2 id="rhobs-the-centralized-metrics-store">RHOBS: The Centralized Metrics Store<a class="headerlink" href="#rhobs-the-centralized-metrics-store" title="Permanent link">&para;</a></h2>
-<p><strong>RHOBS</strong> (Red Hat Observability Service) is a multi-tenant, globally-scoped Prometheus-compatible metrics backend. All HCP metrics from all clusters — Management Cluster, HCPs, and Data Planes — flow there.</p>
-<pre class="mermaid"><code>graph TB
-    subgraph MC["Management Cluster"]
-        MCPROM["Prometheus\n(MC self-monitoring)"]
-        MCFWD["MonitoringStack CR\nOBO metrics pipeline"]
-    end
-
-    subgraph HCP1["HCP Namespace 1"]
-        HCP1PROM["Prometheus\n(HCP-level metrics)"]
-        HCP1FWD["MonitoringStack CR"]
-    end
-
-    subgraph HCP2["HCP Namespace 2"]
-        HCP2PROM["Prometheus\n(HCP-level metrics)"]
-        HCP2FWD["MonitoringStack CR"]
-    end
-
-    subgraph DP["Data Plane (Customer AWS)"]
-        DPPROM["Prometheus\n(worker node / workload metrics)"]
-        DPFWD["metrics-forwarder\nDaemonSet + proxy"]
-    end
-
-    RHOBS[("RHOBS\nCentralized Store\n(Thanos Receive)")]
-    AM["RHOBS Alertmanager\n→ PagerDuty"]
-
-    MCPROM --&gt; MCFWD --&gt; RHOBS
-    HCP1PROM --&gt; HCP1FWD --&gt; RHOBS
-    HCP2PROM --&gt; HCP2FWD --&gt; RHOBS
-    DPPROM --&gt; DPFWD --&gt; RHOBS
-    RHOBS --&gt; AM
-
-    style RHOBS fill:#ede7f6,color:#4a148c
-    style AM fill:#ffebee,color:#b71c1c
-    style MC fill:#e3f2fd,stroke:#1565c0
-    style DP fill:#fff3e0,stroke:#e65100</code></pre>
-<hr />
-<h2 id="three-metric-sources">Three Metric Sources<a class="headerlink" href="#three-metric-sources" title="Permanent link">&para;</a></h2>
-<p>Each HCP has metrics flowing from <strong>three distinct sources</strong>:</p>
+<h2 id="billing-components">Billing Components<a class="headerlink" href="#billing-components" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Source</th>
-<th>What it measures</th>
-<th>Label added</th>
+<th>Component</th>
+<th>What is billed</th>
+<th>Default Rate</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Management Cluster</strong></td>
-<td>kube-apiserver pod CPU/memory, etcd performance, component health</td>
-<td><code>_mc_id="hs-mc-xxxxx"</code></td>
+<td><strong>Hosted Control Plane</strong></td>
+<td>Per-hour per cluster</td>
+<td>$0.25 / hour</td>
 </tr>
 <tr>
-<td><strong>HCP level</strong></td>
-<td>per-HCP control plane component metrics (kube-apiserver request rates, etcd leader changes)</td>
-<td><code>_id="customer-cluster-id"</code></td>
-</tr>
-<tr>
-<td><strong>Data Plane</strong></td>
-<td>worker node CPU/memory, kubelet metrics, custom workload metrics</td>
-<td><code>_id="customer-cluster-id"</code>, <code>source="customer"</code></td>
+<td><strong>Worker Nodes (Data Plane)</strong></td>
+<td>Per 4 vCPUs per hour</td>
+<td>$0.171 / 4 vCPU / hour</td>
 </tr>
 </tbody>
 </table>
-<h3 id="metric-labels-for-querying">Metric Labels for Querying<a class="headerlink" href="#metric-labels-for-querying" title="Permanent link">&para;</a></h3>
-<p>All metrics in RHOBS are tagged with these labels:</p>
-<div class="language-promql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Example: find all metrics from a specific HCP</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123def456</span><span class="p">&quot;}</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Example: find all metrics from a specific MC</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span><span class="nl">_mc_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">hs-mc-1sek0vq5g</span><span class="p">&quot;}</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Example: find all metrics from a region</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123</span><span class="p">&quot;,</span><span class="w"> </span><span class="nl">region</span><span class="o">=</span><span class="p">&quot;</span><span class="s">us-east-1</span><span class="p">&quot;}</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Example: find data plane metrics only</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123</span><span class="p">&quot;,</span><span class="w"> </span><span class="nl">source</span><span class="o">=</span><span class="p">&quot;</span><span class="s">customer</span><span class="p">&quot;}</span>
-</span></code></pre></div>
-<hr />
-<h2 id="observability-operator-obo-and-monitoringstack">Observability Operator (OBO) and MonitoringStack<a class="headerlink" href="#observability-operator-obo-and-monitoringstack" title="Permanent link">&para;</a></h2>
-<p>The <strong>Observability Operator (OBO)</strong> manages the metrics pipeline within each HCP namespace using a <code>MonitoringStack</code> CR.</p>
-<pre class="mermaid"><code>graph LR
-    OBO["Observability Operator\n(on MC)"]
-    MS["MonitoringStack CR\n(in HCP namespace)"]
-    PROM["Prometheus\n(in HCP namespace)"]
-    RULE["PrometheusRule CRs\n(alert rules)"]
-    SEND["RemoteWrite\n→ RHOBS endpoint"]
-
-    OBO --&gt;|"reconciles"| MS
-    MS --&gt;|"deploys"| PROM
-    PROM --&gt;|"scrapes"| RULE
-    PROM --&gt;|"remote_write"| SEND
-    SEND --&gt;|"pushes metrics"| RHOBS["RHOBS"]
-
-    style RHOBS fill:#ede7f6,color:#4a148c</code></pre>
-<p>The <code>MonitoringStack</code> CR configures:
-- Prometheus retention (usually short — data is pushed, not stored)
-- RemoteWrite endpoint (RHOBS ingress URL + auth token)
-- Scrape targets (the HCP components)</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># View MonitoringStack in an HCP namespace</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>oc<span class="w"> </span>get<span class="w"> </span>monitoringstack<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NS</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>oc<span class="w"> </span>describe<span class="w"> </span>monitoringstack<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NS</span><span class="w"> </span><span class="nv">$STACK_NAME</span>
-</span></code></pre></div>
-<hr />
-<h2 id="data-plane-metrics-the-push-model">Data Plane Metrics: The Push Model<a class="headerlink" href="#data-plane-metrics-the-push-model" title="Permanent link">&para;</a></h2>
-<p>Worker node metrics can't be pulled by RHOBS (the DP is in a separate VPC). Instead, a <strong>push model</strong> over PrivateLink is used.</p>
-<pre class="mermaid"><code>sequenceDiagram
-    participant PROM as Prometheus&lt;br/&gt;(on worker nodes)
-    participant MF as metrics-forwarder&lt;br/&gt;(DaemonSet on workers)
-    participant PL as PrivateLink Proxy&lt;br/&gt;(in customer VPC)
-    participant RHOBS as RHOBS Ingestor
-
-    PROM-&gt;&gt;MF: Scrape + buffer metrics
-    MF-&gt;&gt;PL: HTTPS POST (remote_write) via PrivateLink
-    PL-&gt;&gt;RHOBS: Forward to RHOBS ingestion endpoint
-    RHOBS--&gt;&gt;MF: 204 OK</code></pre>
+<p>Both components use the same underlying metric (<code>hypershift_cluster_vcpus</code>) but billed differently:</p>
 <ul>
-<li><code>metrics-forwarder</code> runs as a DaemonSet on worker nodes</li>
-<li>Each forwarder has a certificate provisioned via the hosted cluster's CA</li>
-<li>Traffic routes through the same PrivateLink endpoint used by the kubelet</li>
-<li>Zero egress clusters use this exclusively — no internet access required</li>
+<li><strong>Control plane</strong>: Any value &gt; 0 counts as a billable hour (cluster is running)</li>
+<li><strong>Data plane</strong>: Actual vCPU count × time = cost</li>
 </ul>
+<p>Private offers (negotiated contracts) can reduce or eliminate these charges.</p>
 <hr />
-<h2 id="alerting-architecture">Alerting Architecture<a class="headerlink" href="#alerting-architecture" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>graph LR
-    RHOBS[("RHOBS\n(Thanos Ruler)")]
-    RULES["Alert Rule Files\n(stored in RHOBS)"]
-    AM["RHOBS Alertmanager"]
-    PD_HIGH["PagerDuty\n(Critical Team)"]
-    PD_LOW["PagerDuty\n(Warning Team)"]
-    DEAD["Dead Man's Switch\n(always-firing alert)"]
+<h2 id="metering-pipeline">Metering Pipeline<a class="headerlink" href="#metering-pipeline" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TD
+    HO["HyperShift Operator\n(management cluster)"]
+    OBS["HCP Observability Stack\n(RHOBS / Telemeter)"]
+    SW["SubWatch / swatch\n(billing reconciler)"]
+    AMS["AMS\n(Account Management Service)"]
+    AWS["AWS Marketplace\nBatchMeterUsage API"]
 
-    RHOBS --&gt;|"evaluate rules"| RULES
-    RULES --&gt;|"fire alerts"| AM
-    AM --&gt;|"severity: critical"| PD_HIGH
-    AM --&gt;|"severity: warning"| PD_LOW
-    RHOBS --&gt;|"heartbeat"| DEAD
+    HO --&gt;|"exposes hypershift_cluster_vcpus"| OBS
+    OBS --&gt;|"forwards metrics + recording rules"| SW
+    AMS --&gt;|"emits ocm_subscription\nwith account linkage"| SW
+    SW --&gt;|"remits billable usage"| AWS
 
-    style RHOBS fill:#ede7f6,color:#4a148c
-    style AM fill:#ffebee,color:#b71c1c
-    style PD_HIGH fill:#ffebee,color:#b71c1c
-    style PD_LOW fill:#fff3e0,color:#bf360c</code></pre>
-<h3 id="alert-rule-categories">Alert Rule Categories<a class="headerlink" href="#alert-rule-categories" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>File Pattern</th>
-<th>Examples</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cluster health</td>
-<td><code>cluster-*.yaml</code></td>
-<td><code>HostedClusterAvailable</code>, <code>HostedClusterDegraded</code></td>
-</tr>
-<tr>
-<td>etcd</td>
-<td><code>etcd-*.yaml</code></td>
-<td><code>EtcdHighNumberOfLeaderChanges</code>, <code>EtcdNoLeader</code></td>
-</tr>
-<tr>
-<td>API server</td>
-<td><code>kube-apiserver-*.yaml</code></td>
-<td><code>KubeAPIErrorBudgetBurn</code>, <code>KubeAPILatencyHigh</code></td>
-</tr>
-<tr>
-<td>Node pool</td>
-<td><code>nodepool-*.yaml</code></td>
-<td><code>NodePoolDegraded</code>, <code>NodePoolNotScaling</code></td>
-</tr>
-<tr>
-<td>Konnectivity</td>
-<td><code>konnectivity-*.yaml</code></td>
-<td><code>KonnectivityServerDown</code></td>
-</tr>
-<tr>
-<td>Capacity</td>
-<td><code>capacity-*.yaml</code></td>
-<td><code>RequestServingNodePoolLow</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="alert-severity-routing">Alert Severity Routing<a class="headerlink" href="#alert-severity-routing" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Severity</th>
-<th>PagerDuty team</th>
-<th>Response SLA</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>critical</code></td>
-<td>On-call (24/7)</td>
-<td>Immediate</td>
-</tr>
-<tr>
-<td><code>warning</code></td>
-<td>Engineering</td>
-<td>Business hours</td>
-</tr>
-<tr>
-<td><code>info</code></td>
-<td>(no page)</td>
-<td>Dashboards only</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="alert-graduation-pipeline">Alert Graduation Pipeline<a class="headerlink" href="#alert-graduation-pipeline" title="Permanent link">&para;</a></h2>
-<p>New alerts don't go directly to <code>critical</code>. They go through a graduation pipeline to reduce alert fatigue:</p>
-<pre class="mermaid"><code>graph LR
-    SOAK["Soaking\n(monitoring only,\nnot paging)"]
-    WARN["Warning\n(pages warning team)"]
-    CRIT["Critical\n(pages on-call)"]
-
-    SOAK --&gt;|"No false positives\nafter 2 weeks"| WARN
-    WARN --&gt;|"Actionable + reliable\nafter 2 weeks"| CRIT
-    WARN --&gt;|"False positive"| SOAK</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Before escalating an alert issue</p>
-<p>Check if the alert is in soaking or warning phase — it may be a known-unreliable alert that's being tuned.</p>
+    style HO fill:#e3f2fd,color:#0d47a1
+    style OBS fill:#ede7f6,color:#4a148c
+    style SW fill:#e8f5e9,color:#1b5e20
+    style AMS fill:#fff3e0,color:#bf360c
+    style AWS fill:#ffebee,color:#b71c1c</code></pre>
+<h3 id="step-1-metric-source-hypershift-operator">Step 1: Metric Source — HyperShift Operator<a class="headerlink" href="#step-1-metric-source-hypershift-operator" title="Permanent link">&para;</a></h3>
+<p>The HyperShift operator on each MC exposes <code>hypershift_cluster_vcpus</code>:</p>
+<ol>
+<li>Lists all NodePools for each HostedCluster</li>
+<li>Calls EC2 <code>DescribeInstanceTypes</code> to get vCPU counts per instance type</li>
+<li>Multiplies vCPUs × replicas for each NodePool</li>
+<li>Sums across all NodePools in the cluster</li>
+</ol>
+<p>The metric is labeled with <code>_id</code> (the cluster's <code>ClusterID</code>), <code>namespace</code>, <code>name</code>, and <code>platform</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Computation Errors</p>
+<p>If the vCPU count cannot be determined (unsupported platform, EC2 API failure), <code>hypershift_cluster_vcpus</code> is set to <code>-1</code> and a companion <code>hypershift_cluster_vcpus_computation_error</code> metric fires. A known issue (OCPBUGS-50003) affects clusters using instance types that require On Demand Capacity Reservations.</p>
 </div>
+<h3 id="step-2-telemeter-recording-rules">Step 2: Telemeter Recording Rules<a class="headerlink" href="#step-2-telemeter-recording-rules" title="Permanent link">&para;</a></h3>
+<p>Telemeter receives raw metrics and applies recording rules to produce billing-ready time series:</p>
+<table>
+<thead>
+<tr>
+<th>Output Metric</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rosa:cluster:vcpu_hours</code></td>
+<td>Data plane billing (vCPU × hours)</td>
+</tr>
+<tr>
+<td><code>cluster:usage:control_plane:instance_hours</code></td>
+<td>Control plane billing (any vCPU &gt; 0 = running)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-3-subwatch-swatch">Step 3: SubWatch (swatch)<a class="headerlink" href="#step-3-subwatch-swatch" title="Permanent link">&para;</a></h3>
+<p>SubWatch bridges metrics to billing dimensions:</p>
+<table>
+<thead>
+<tr>
+<th>Billable Dimension</th>
+<th>AWS Dimension</th>
+<th>Source Metric</th>
+<th>Billing Factor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control Plane</td>
+<td><code>control_plane</code></td>
+<td>instance_hours</td>
+<td>1 (1 hour = 1 unit)</td>
+</tr>
+<tr>
+<td>Worker Nodes</td>
+<td><code>four_vcpu_hour</code></td>
+<td>vcpu_hours</td>
+<td>0.25 (4 vCPU = 1 unit)</td>
+</tr>
+</tbody>
+</table>
+<p>SubWatch joins data with the <code>ocm_subscription</code> metric via the cluster's <code>_id</code> label to resolve the customer's AWS account.</p>
 <hr />
-<h2 id="automatic-alert-suppression">Automatic Alert Suppression<a class="headerlink" href="#automatic-alert-suppression" title="Permanent link">&para;</a></h2>
-<p>When a cluster is intentionally degraded (e.g., during maintenance), alerts can be automatically suppressed:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Suppress all alerts for a cluster</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>oc<span class="w"> </span>annotate<span class="w"> </span>hostedcluster<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HC_NS</span><span class="w"> </span><span class="nv">$CLUSTER_NAME</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>hypershift.openshift.io/disable-cluster-alerts<span class="o">=</span><span class="nb">true</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Remove suppression</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>oc<span class="w"> </span>annotate<span class="w"> </span>hostedcluster<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HC_NS</span><span class="w"> </span><span class="nv">$CLUSTER_NAME</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span>hypershift.openshift.io/disable-cluster-alerts-
-</span></code></pre></div>
-<p>When <code>hypershift_cluster_alerts_disabled</code> metric is <code>1</code>, the RHOBS Alertmanager inhibition rules suppress all HCP-specific alerts for that cluster.</p>
+<h2 id="account-linking">Account Linking<a class="headerlink" href="#account-linking" title="Permanent link">&para;</a></h2>
+<p>Before billing can occur, the customer's AWS account must be linked to their Red Hat account:</p>
+<pre class="mermaid"><code>graph LR
+    CUST["Customer\nAWS Account"]
+    MP["AWS Marketplace\nActivation"]
+    ENT["IT Entitlements API"]
+    AMS["AMS\nReconciliation"]
+
+    CUST --&gt;|"1. Activate ROSA HCP"| MP
+    MP --&gt;|"2. Trigger entitlement"| ENT
+    ENT --&gt;|"3. Store mapping"| AMS
+    AMS --&gt;|"4. Emit ocm_subscription metric"| AMS
+
+    style CUST fill:#e3f2fd,color:#0d47a1
+    style MP fill:#fff3e0,color:#bf360c
+    style ENT fill:#ede7f6,color:#4a148c
+    style AMS fill:#e8f5e9,color:#1b5e20</code></pre>
+<p>This linkage maps:
+- Customer AWS account ID → Red Hat account ID → Red Hat org ID</p>
+<h3 id="private-offers-contracts">Private Offers (Contracts)<a class="headerlink" href="#private-offers-contracts" title="Permanent link">&para;</a></h3>
+<p>Customers may have negotiated private offers that include free entitlements:
+- Example: 1000 vCPUs/month of data plane + 100 hours/month of control plane
+- SubWatch deducts contract coverage from accumulated monthly total
+- Only the <strong>excess</strong> usage is remitted to AWS Marketplace</p>
 <hr />
-<h2 id="querying-metrics-in-rhobs">Querying Metrics in RHOBS<a class="headerlink" href="#querying-metrics-in-rhobs" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Via Grafana (preferred for dashboards)</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># Use the RHOBS Grafana instance for your environment</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Via promtool / curl (for quick checks)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="s2">&quot;https://rhobs.example.com/api/v1/query?query=up{_id=&#39;</span><span class="nv">$CLUSTER_ID</span><span class="s2">&#39;}&quot;</span>
+<h2 id="how-subwatch-accumulates-and-remits">How SubWatch Accumulates and Remits<a class="headerlink" href="#how-subwatch-accumulates-and-remits" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Accumulates usage from the start of each calendar month</li>
+<li>Looks up active contracts for the org/product/billing account</li>
+<li>Sums contracted entitlements (e.g., 1000 <code>four_vcpu_hour</code> units/month)</li>
+<li>Subtracts contract coverage — usage within coverage is marked <strong>gratis</strong></li>
+<li>Remaining billable usage → <code>BatchMeterUsage</code> API to AWS Marketplace</li>
+<li>Each remittance is tracked to prevent double-billing on retries</li>
+</ol>
+<hr />
+<h2 id="billing-alerts-and-reliability">Billing Alerts and Reliability<a class="headerlink" href="#billing-alerts-and-reliability" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Alert</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BillingMetricsMissing</code></td>
+<td><strong>Disabled</strong> (OCPBUGS-50003)</td>
+<td>Fires when <code>hypershift_cluster_vcpus = -1</code></td>
+</tr>
+<tr>
+<td>Fleet-level E2E alert</td>
+<td><strong>Planned</strong> (SREP-395)</td>
+<td>Monitors % of active clusters with billing metrics in Telemeter</td>
+</tr>
+</tbody>
+</table>
+<p>The per-cluster alert is being replaced with a fleet-level end-to-end alert that monitors whether billing metrics are landing in Telemeter across the fleet, rather than alerting on individual cluster metric failures.</p>
+<hr />
+<h2 id="troubleshooting-billing-issues">Troubleshooting Billing Issues<a class="headerlink" href="#troubleshooting-billing-issues" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Check if billing metric is being computed for a cluster</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># (query RHOBS for the cluster&#39;s vCPU metric)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>osdctl<span class="w"> </span>rhobs<span class="w"> </span>metrics<span class="w"> </span>-C<span class="w"> </span><span class="nv">$MC_CLUSTER_ID</span><span class="w"> </span>-f<span class="w"> </span><span class="s1">&#39;hypershift_cluster_vcpus{_id=&quot;$CLUSTER_ID&quot;}&#39;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Check for computation errors</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>osdctl<span class="w"> </span>rhobs<span class="w"> </span>metrics<span class="w"> </span>-C<span class="w"> </span><span class="nv">$MC_CLUSTER_ID</span><span class="w"> </span>-f<span class="w"> </span><span class="s1">&#39;hypershift_cluster_vcpus_computation_error{_id=&quot;$CLUSTER_ID&quot;}&#39;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Verify the cluster appears in Telemeter</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># (this requires access to the Telemeter query endpoint)</span>
 </span></code></pre></div>
-<h3 id="useful-queries">Useful Queries<a class="headerlink" href="#useful-queries" title="Permanent link">&para;</a></h3>
-<div class="language-promql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Is the HCP available?</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">hypershift_cluster_available</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># etcd leader changes in the last hour</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kr">increase</span><span class="o">(</span><span class="nv">etcd_server_leader_changes_seen_total</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}[</span><span class="s">1h</span><span class="p">]</span><span class="o">)</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># kube-apiserver request latency (p99)</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kr">histogram_quantile</span><span class="o">(</span><span class="mf">0.99</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">(</span><span class="nv">le</span><span class="o">)</span><span class="w"> </span><span class="o">(</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="kr">rate</span><span class="o">(</span><span class="nv">apiserver_request_duration_seconds_bucket</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}[</span><span class="s">5m</span><span class="p">]</span><span class="o">)</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="o">))</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Worker node memory usage</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="k">sum</span><span class="o">(</span><span class="nv">node_memory_MemUsed_bytes</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}</span><span class="o">)</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">(</span><span class="nv">instance</span><span class="o">)</span>
-</span></code></pre></div>
+<p>If <code>hypershift_cluster_vcpus</code> is <code>-1</code>, the most common causes are:
+- Instance type requires ODCR (On Demand Capacity Reservation) not available to the MC
+- EC2 <code>DescribeInstanceTypes</code> API failure from the MC's AWS account</p>
 
 
 

@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../upgrade-architecture/">
+        <link rel="prev" href="../karpenter/">
       
       
-        <link rel="next" href="../log-forwarding/">
+        <link rel="next" href="../monitoring/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Monitoring & Alerting - ROSA HCP Study Guide</title>
+        <title>Upgrade Architecture - ROSA HCP Study Guide</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitoring-alerting" class="md-skip">
+        <a href="#upgrade-architecture" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Monitoring & Alerting
+              Upgrade Architecture
             
           </span>
         </div>
@@ -699,34 +699,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../upgrade-architecture/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Upgrade Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -746,7 +718,7 @@
   <span class="md-ellipsis">
     
   
-    Monitoring & Alerting
+    Upgrade Architecture
   
 
     
@@ -764,7 +736,7 @@
   <span class="md-ellipsis">
     
   
-    Monitoring & Alerting
+    Upgrade Architecture
   
 
     
@@ -790,10 +762,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rhobs-the-centralized-metrics-store" class="md-nav__link">
+  <a href="#upgrade-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RHOBS: The Centralized Metrics Store
+        Upgrade Flow
       
     </span>
   </a>
@@ -801,22 +773,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#three-metric-sources" class="md-nav__link">
+  <a href="#propagation-chain" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Three Metric Sources
+        Propagation Chain
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Three Metric Sources">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-upgrade-propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying Upgrade Propagation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verifying Upgrade Propagation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metric-labels-for-querying" class="md-nav__link">
+  <a href="#1-check-manifestwork-on-the-service-cluster" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Metric Labels for Querying
+        1. Check ManifestWork on the Service Cluster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-check-hostedcluster-on-the-management-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Check HostedCluster on the Management Cluster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-check-hostedcontrolplane-on-the-management-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Check HostedControlPlane on the Management Cluster
       
     </span>
   </a>
@@ -829,10 +834,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#observability-operator-obo-and-monitoringstack" class="md-nav__link">
+  <a href="#verifying-a-release-image-sha" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observability Operator (OBO) and MonitoringStack
+        Verifying a Release Image SHA
       
     </span>
   </a>
@@ -840,44 +845,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-plane-metrics-the-push-model" class="md-nav__link">
+  <a href="#fleet-upgrades-scmc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data Plane Metrics: The Push Model
+        Fleet Upgrades (SC/MC)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alerting-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alerting Architecture
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alerting Architecture">
+    <nav class="md-nav" aria-label="Fleet Upgrades (SC/MC)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#alert-rule-categories" class="md-nav__link">
+  <a href="#mcsc-upgrade-failure-mcscupgradefailuresop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Rule Categories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-severity-routing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Severity Routing
+        MC/SC Upgrade Failure (MCSCUpgradeFailureSOP)
       
     </span>
   </a>
@@ -890,52 +873,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alert-graduation-pipeline" class="md-nav__link">
+  <a href="#upgrade-telemetry-dashboards" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Graduation Pipeline
+        Upgrade Telemetry Dashboards
       
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automatic-alert-suppression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic Alert Suppression
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#querying-metrics-in-rhobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Querying Metrics in RHOBS
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Querying Metrics in RHOBS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-queries" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Queries
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -943,6 +887,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring & Alerting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1379,10 +1351,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rhobs-the-centralized-metrics-store" class="md-nav__link">
+  <a href="#upgrade-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RHOBS: The Centralized Metrics Store
+        Upgrade Flow
       
     </span>
   </a>
@@ -1390,22 +1362,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#three-metric-sources" class="md-nav__link">
+  <a href="#propagation-chain" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Three Metric Sources
+        Propagation Chain
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Three Metric Sources">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-upgrade-propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying Upgrade Propagation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verifying Upgrade Propagation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metric-labels-for-querying" class="md-nav__link">
+  <a href="#1-check-manifestwork-on-the-service-cluster" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Metric Labels for Querying
+        1. Check ManifestWork on the Service Cluster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-check-hostedcluster-on-the-management-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Check HostedCluster on the Management Cluster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-check-hostedcontrolplane-on-the-management-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Check HostedControlPlane on the Management Cluster
       
     </span>
   </a>
@@ -1418,10 +1423,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#observability-operator-obo-and-monitoringstack" class="md-nav__link">
+  <a href="#verifying-a-release-image-sha" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observability Operator (OBO) and MonitoringStack
+        Verifying a Release Image SHA
       
     </span>
   </a>
@@ -1429,44 +1434,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-plane-metrics-the-push-model" class="md-nav__link">
+  <a href="#fleet-upgrades-scmc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data Plane Metrics: The Push Model
+        Fleet Upgrades (SC/MC)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alerting-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alerting Architecture
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alerting Architecture">
+    <nav class="md-nav" aria-label="Fleet Upgrades (SC/MC)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#alert-rule-categories" class="md-nav__link">
+  <a href="#mcsc-upgrade-failure-mcscupgradefailuresop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Rule Categories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-severity-routing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Severity Routing
+        MC/SC Upgrade Failure (MCSCUpgradeFailureSOP)
       
     </span>
   </a>
@@ -1479,52 +1462,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alert-graduation-pipeline" class="md-nav__link">
+  <a href="#upgrade-telemetry-dashboards" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Graduation Pipeline
+        Upgrade Telemetry Dashboards
       
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automatic-alert-suppression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic Alert Suppression
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#querying-metrics-in-rhobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Querying Metrics in RHOBS
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Querying Metrics in RHOBS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-queries" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Queries
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1596,272 +1540,152 @@
   
 
 
-<h1 id="monitoring-alerting">Monitoring &amp; Alerting<a class="headerlink" href="#monitoring-alerting" title="Permanent link">&para;</a></h1>
-<p>In Classic ROSA, each cluster has its own Prometheus instance. With HCP, this model doesn't scale — 80+ HCPs per Management Cluster would mean 80+ Prometheus stacks. Instead, HCP uses a <strong>centralized observability service</strong>: RHOBS.</p>
+<h1 id="upgrade-architecture">Upgrade Architecture<a class="headerlink" href="#upgrade-architecture" title="Permanent link">&para;</a></h1>
+<p>This page explains how ROSA HCP control plane upgrades propagate through the system layers — from customer request to control plane pod replacement — and how to verify or unblock a stuck upgrade.</p>
 <hr />
-<h2 id="rhobs-the-centralized-metrics-store">RHOBS: The Centralized Metrics Store<a class="headerlink" href="#rhobs-the-centralized-metrics-store" title="Permanent link">&para;</a></h2>
-<p><strong>RHOBS</strong> (Red Hat Observability Service) is a multi-tenant, globally-scoped Prometheus-compatible metrics backend. All HCP metrics from all clusters — Management Cluster, HCPs, and Data Planes — flow there.</p>
-<pre class="mermaid"><code>graph TB
-    subgraph MC["Management Cluster"]
-        MCPROM["Prometheus\n(MC self-monitoring)"]
-        MCFWD["MonitoringStack CR\nOBO metrics pipeline"]
-    end
-
-    subgraph HCP1["HCP Namespace 1"]
-        HCP1PROM["Prometheus\n(HCP-level metrics)"]
-        HCP1FWD["MonitoringStack CR"]
-    end
-
-    subgraph HCP2["HCP Namespace 2"]
-        HCP2PROM["Prometheus\n(HCP-level metrics)"]
-        HCP2FWD["MonitoringStack CR"]
-    end
-
-    subgraph DP["Data Plane (Customer AWS)"]
-        DPPROM["Prometheus\n(worker node / workload metrics)"]
-        DPFWD["metrics-forwarder\nDaemonSet + proxy"]
-    end
-
-    RHOBS[("RHOBS\nCentralized Store\n(Thanos Receive)")]
-    AM["RHOBS Alertmanager\n→ PagerDuty"]
-
-    MCPROM --&gt; MCFWD --&gt; RHOBS
-    HCP1PROM --&gt; HCP1FWD --&gt; RHOBS
-    HCP2PROM --&gt; HCP2FWD --&gt; RHOBS
-    DPPROM --&gt; DPFWD --&gt; RHOBS
-    RHOBS --&gt; AM
-
-    style RHOBS fill:#ede7f6,color:#4a148c
-    style AM fill:#ffebee,color:#b71c1c
-    style MC fill:#e3f2fd,stroke:#1565c0
-    style DP fill:#fff3e0,stroke:#e65100</code></pre>
-<hr />
-<h2 id="three-metric-sources">Three Metric Sources<a class="headerlink" href="#three-metric-sources" title="Permanent link">&para;</a></h2>
-<p>Each HCP has metrics flowing from <strong>three distinct sources</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Source</th>
-<th>What it measures</th>
-<th>Label added</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Management Cluster</strong></td>
-<td>kube-apiserver pod CPU/memory, etcd performance, component health</td>
-<td><code>_mc_id="hs-mc-xxxxx"</code></td>
-</tr>
-<tr>
-<td><strong>HCP level</strong></td>
-<td>per-HCP control plane component metrics (kube-apiserver request rates, etcd leader changes)</td>
-<td><code>_id="customer-cluster-id"</code></td>
-</tr>
-<tr>
-<td><strong>Data Plane</strong></td>
-<td>worker node CPU/memory, kubelet metrics, custom workload metrics</td>
-<td><code>_id="customer-cluster-id"</code>, <code>source="customer"</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="metric-labels-for-querying">Metric Labels for Querying<a class="headerlink" href="#metric-labels-for-querying" title="Permanent link">&para;</a></h3>
-<p>All metrics in RHOBS are tagged with these labels:</p>
-<div class="language-promql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Example: find all metrics from a specific HCP</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123def456</span><span class="p">&quot;}</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Example: find all metrics from a specific MC</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span><span class="nl">_mc_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">hs-mc-1sek0vq5g</span><span class="p">&quot;}</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Example: find all metrics from a region</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123</span><span class="p">&quot;,</span><span class="w"> </span><span class="nl">region</span><span class="o">=</span><span class="p">&quot;</span><span class="s">us-east-1</span><span class="p">&quot;}</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Example: find data plane metrics only</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123</span><span class="p">&quot;,</span><span class="w"> </span><span class="nl">source</span><span class="o">=</span><span class="p">&quot;</span><span class="s">customer</span><span class="p">&quot;}</span>
-</span></code></pre></div>
-<hr />
-<h2 id="observability-operator-obo-and-monitoringstack">Observability Operator (OBO) and MonitoringStack<a class="headerlink" href="#observability-operator-obo-and-monitoringstack" title="Permanent link">&para;</a></h2>
-<p>The <strong>Observability Operator (OBO)</strong> manages the metrics pipeline within each HCP namespace using a <code>MonitoringStack</code> CR.</p>
-<pre class="mermaid"><code>graph LR
-    OBO["Observability Operator\n(on MC)"]
-    MS["MonitoringStack CR\n(in HCP namespace)"]
-    PROM["Prometheus\n(in HCP namespace)"]
-    RULE["PrometheusRule CRs\n(alert rules)"]
-    SEND["RemoteWrite\n→ RHOBS endpoint"]
-
-    OBO --&gt;|"reconciles"| MS
-    MS --&gt;|"deploys"| PROM
-    PROM --&gt;|"scrapes"| RULE
-    PROM --&gt;|"remote_write"| SEND
-    SEND --&gt;|"pushes metrics"| RHOBS["RHOBS"]
-
-    style RHOBS fill:#ede7f6,color:#4a148c</code></pre>
-<p>The <code>MonitoringStack</code> CR configures:
-- Prometheus retention (usually short — data is pushed, not stored)
-- RemoteWrite endpoint (RHOBS ingress URL + auth token)
-- Scrape targets (the HCP components)</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># View MonitoringStack in an HCP namespace</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>oc<span class="w"> </span>get<span class="w"> </span>monitoringstack<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NS</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>oc<span class="w"> </span>describe<span class="w"> </span>monitoringstack<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NS</span><span class="w"> </span><span class="nv">$STACK_NAME</span>
-</span></code></pre></div>
-<hr />
-<h2 id="data-plane-metrics-the-push-model">Data Plane Metrics: The Push Model<a class="headerlink" href="#data-plane-metrics-the-push-model" title="Permanent link">&para;</a></h2>
-<p>Worker node metrics can't be pulled by RHOBS (the DP is in a separate VPC). Instead, a <strong>push model</strong> over PrivateLink is used.</p>
+<h2 id="upgrade-flow">Upgrade Flow<a class="headerlink" href="#upgrade-flow" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>sequenceDiagram
-    participant PROM as Prometheus&lt;br/&gt;(on worker nodes)
-    participant MF as metrics-forwarder&lt;br/&gt;(DaemonSet on workers)
-    participant PL as PrivateLink Proxy&lt;br/&gt;(in customer VPC)
-    participant RHOBS as RHOBS Ingestor
+    participant CUST as Customer
+    participant OCM as OCM / Clusters Service
+    participant SC as Service Cluster
+    participant ACM as ACM (ManifestWork)
+    participant MC as Management Cluster
+    participant HO as HyperShift Operator
+    participant CPO as Control Plane Operator
 
-    PROM-&gt;&gt;MF: Scrape + buffer metrics
-    MF-&gt;&gt;PL: HTTPS POST (remote_write) via PrivateLink
-    PL-&gt;&gt;RHOBS: Forward to RHOBS ingestion endpoint
-    RHOBS--&gt;&gt;MF: 204 OK</code></pre>
-<ul>
-<li><code>metrics-forwarder</code> runs as a DaemonSet on worker nodes</li>
-<li>Each forwarder has a certificate provisioned via the hosted cluster's CA</li>
-<li>Traffic routes through the same PrivateLink endpoint used by the kubelet</li>
-<li>Zero egress clusters use this exclusively — no internet access required</li>
-</ul>
-<hr />
-<h2 id="alerting-architecture">Alerting Architecture<a class="headerlink" href="#alerting-architecture" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>graph LR
-    RHOBS[("RHOBS\n(Thanos Ruler)")]
-    RULES["Alert Rule Files\n(stored in RHOBS)"]
-    AM["RHOBS Alertmanager"]
-    PD_HIGH["PagerDuty\n(Critical Team)"]
-    PD_LOW["PagerDuty\n(Warning Team)"]
-    DEAD["Dead Man's Switch\n(always-firing alert)"]
-
-    RHOBS --&gt;|"evaluate rules"| RULES
-    RULES --&gt;|"fire alerts"| AM
-    AM --&gt;|"severity: critical"| PD_HIGH
-    AM --&gt;|"severity: warning"| PD_LOW
-    RHOBS --&gt;|"heartbeat"| DEAD
-
-    style RHOBS fill:#ede7f6,color:#4a148c
-    style AM fill:#ffebee,color:#b71c1c
-    style PD_HIGH fill:#ffebee,color:#b71c1c
-    style PD_LOW fill:#fff3e0,color:#bf360c</code></pre>
-<h3 id="alert-rule-categories">Alert Rule Categories<a class="headerlink" href="#alert-rule-categories" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>File Pattern</th>
-<th>Examples</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cluster health</td>
-<td><code>cluster-*.yaml</code></td>
-<td><code>HostedClusterAvailable</code>, <code>HostedClusterDegraded</code></td>
-</tr>
-<tr>
-<td>etcd</td>
-<td><code>etcd-*.yaml</code></td>
-<td><code>EtcdHighNumberOfLeaderChanges</code>, <code>EtcdNoLeader</code></td>
-</tr>
-<tr>
-<td>API server</td>
-<td><code>kube-apiserver-*.yaml</code></td>
-<td><code>KubeAPIErrorBudgetBurn</code>, <code>KubeAPILatencyHigh</code></td>
-</tr>
-<tr>
-<td>Node pool</td>
-<td><code>nodepool-*.yaml</code></td>
-<td><code>NodePoolDegraded</code>, <code>NodePoolNotScaling</code></td>
-</tr>
-<tr>
-<td>Konnectivity</td>
-<td><code>konnectivity-*.yaml</code></td>
-<td><code>KonnectivityServerDown</code></td>
-</tr>
-<tr>
-<td>Capacity</td>
-<td><code>capacity-*.yaml</code></td>
-<td><code>RequestServingNodePoolLow</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="alert-severity-routing">Alert Severity Routing<a class="headerlink" href="#alert-severity-routing" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Severity</th>
-<th>PagerDuty team</th>
-<th>Response SLA</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>critical</code></td>
-<td>On-call (24/7)</td>
-<td>Immediate</td>
-</tr>
-<tr>
-<td><code>warning</code></td>
-<td>Engineering</td>
-<td>Business hours</td>
-</tr>
-<tr>
-<td><code>info</code></td>
-<td>(no page)</td>
-<td>Dashboards only</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="alert-graduation-pipeline">Alert Graduation Pipeline<a class="headerlink" href="#alert-graduation-pipeline" title="Permanent link">&para;</a></h2>
-<p>New alerts don't go directly to <code>critical</code>. They go through a graduation pipeline to reduce alert fatigue:</p>
-<pre class="mermaid"><code>graph LR
-    SOAK["Soaking\n(monitoring only,\nnot paging)"]
-    WARN["Warning\n(pages warning team)"]
-    CRIT["Critical\n(pages on-call)"]
-
-    SOAK --&gt;|"No false positives\nafter 2 weeks"| WARN
-    WARN --&gt;|"Actionable + reliable\nafter 2 weeks"| CRIT
-    WARN --&gt;|"False positive"| SOAK</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Before escalating an alert issue</p>
-<p>Check if the alert is in soaking or warning phase — it may be a known-unreliable alert that's being tuned.</p>
+    CUST-&gt;&gt;OCM: rosa upgrade cluster --version 4.17.5
+    OCM-&gt;&gt;OCM: Create upgrade_policy record
+    OCM-&gt;&gt;OCM: Run pre-flight checks
+    Note right of OCM: If checks fail, upgrade marked failed
+    OCM-&gt;&gt;SC: Patch ManifestWork with new release image
+    Note right of SC: Upgrade status → started
+    SC-&gt;&gt;ACM: ManifestWork applied
+    ACM-&gt;&gt;MC: Patch HostedCluster.spec.release.image
+    MC-&gt;&gt;HO: HyperShift Operator detects release change
+    HO-&gt;&gt;MC: Propagate to HostedControlPlane.spec.releaseImage
+    MC-&gt;&gt;CPO: CPO detects HostedControlPlane change
+    CPO-&gt;&gt;MC: Begin rolling update of control plane pods
+    Note over CPO,MC: kube-apiserver → etcd → operators
+    CPO--&gt;&gt;MC: ControlPlaneUpgradeComplete</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Once Started, Cannot Cancel</p>
+<p>Once an upgrade is marked as <code>started</code> in OCM, it cannot be cancelled or moved to failed status via API call. The upgrade must complete or be manually recovered.</p>
 </div>
 <hr />
-<h2 id="automatic-alert-suppression">Automatic Alert Suppression<a class="headerlink" href="#automatic-alert-suppression" title="Permanent link">&para;</a></h2>
-<p>When a cluster is intentionally degraded (e.g., during maintenance), alerts can be automatically suppressed:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Suppress all alerts for a cluster</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>oc<span class="w"> </span>annotate<span class="w"> </span>hostedcluster<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HC_NS</span><span class="w"> </span><span class="nv">$CLUSTER_NAME</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>hypershift.openshift.io/disable-cluster-alerts<span class="o">=</span><span class="nb">true</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Remove suppression</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>oc<span class="w"> </span>annotate<span class="w"> </span>hostedcluster<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HC_NS</span><span class="w"> </span><span class="nv">$CLUSTER_NAME</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span>hypershift.openshift.io/disable-cluster-alerts-
-</span></code></pre></div>
-<p>When <code>hypershift_cluster_alerts_disabled</code> metric is <code>1</code>, the RHOBS Alertmanager inhibition rules suppress all HCP-specific alerts for that cluster.</p>
+<h2 id="propagation-chain">Propagation Chain<a class="headerlink" href="#propagation-chain" title="Permanent link">&para;</a></h2>
+<p>The upgrade flows through 3 checkpoints. Work backwards from the hosted cluster to find where a stuck upgrade is broken:</p>
+<pre class="mermaid"><code>graph LR
+    MW["ManifestWork\n(on Service Cluster)"]
+    HC["HostedCluster\n(on Management Cluster)"]
+    HCP2["HostedControlPlane\n(on Management Cluster)"]
+    PODS["Control Plane Pods\n(CPO updates)"]
+
+    MW --&gt;|"ACM reconciles"| HC
+    HC --&gt;|"HyperShift Operator"| HCP2
+    HCP2 --&gt;|"CPO rolling update"| PODS
+
+    style MW fill:#e3f2fd,color:#0d47a1
+    style HC fill:#e8f5e9,color:#1b5e20
+    style HCP2 fill:#fff3e0,color:#bf360c
+    style PODS fill:#ede7f6,color:#4a148c</code></pre>
 <hr />
-<h2 id="querying-metrics-in-rhobs">Querying Metrics in RHOBS<a class="headerlink" href="#querying-metrics-in-rhobs" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Via Grafana (preferred for dashboards)</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># Use the RHOBS Grafana instance for your environment</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Via promtool / curl (for quick checks)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="s2">&quot;https://rhobs.example.com/api/v1/query?query=up{_id=&#39;</span><span class="nv">$CLUSTER_ID</span><span class="s2">&#39;}&quot;</span>
+<h2 id="verifying-upgrade-propagation">Verifying Upgrade Propagation<a class="headerlink" href="#verifying-upgrade-propagation" title="Permanent link">&para;</a></h2>
+<h3 id="1-check-manifestwork-on-the-service-cluster">1. Check ManifestWork on the Service Cluster<a class="headerlink" href="#1-check-manifestwork-on-the-service-cluster" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ocm<span class="w"> </span>backplane<span class="w"> </span>login<span class="w"> </span><span class="nv">$CLUSTER_ID</span><span class="w"> </span>--service
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Check if the new release image is in the ManifestWork</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>oc<span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">MC_NAME</span><span class="si">}</span><span class="w"> </span>get<span class="w"> </span>manifestwork<span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER_ID</span><span class="si">}</span><span class="w"> </span>-ojson<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.spec.workload.manifests[] | select(.kind==&quot;HostedCluster&quot;) | .spec.release&#39;</span>
 </span></code></pre></div>
-<h3 id="useful-queries">Useful Queries<a class="headerlink" href="#useful-queries" title="Permanent link">&para;</a></h3>
-<div class="language-promql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Is the HCP available?</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">hypershift_cluster_available</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># etcd leader changes in the last hour</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kr">increase</span><span class="o">(</span><span class="nv">etcd_server_leader_changes_seen_total</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}[</span><span class="s">1h</span><span class="p">]</span><span class="o">)</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># kube-apiserver request latency (p99)</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kr">histogram_quantile</span><span class="o">(</span><span class="mf">0.99</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">(</span><span class="nv">le</span><span class="o">)</span><span class="w"> </span><span class="o">(</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="kr">rate</span><span class="o">(</span><span class="nv">apiserver_request_duration_seconds_bucket</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}[</span><span class="s">5m</span><span class="p">]</span><span class="o">)</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="o">))</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Worker node memory usage</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="k">sum</span><span class="o">(</span><span class="nv">node_memory_MemUsed_bytes</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}</span><span class="o">)</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">(</span><span class="nv">instance</span><span class="o">)</span>
+<p><strong>If not updated:</strong> Cluster Service was unable to patch the ManifestWork.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Check CS logs</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>osdctl<span class="w"> </span>rhobs<span class="w"> </span>logs<span class="w"> </span>-C<span class="w"> </span><span class="nv">$MC_CLUSTER_ID</span><span class="w"> </span>-n<span class="w"> </span>uhc-production<span class="w"> </span>--since<span class="w"> </span>30m
 </span></code></pre></div>
+Contact <code>@ocm-rosa-hcp-ic</code> in <code>#sd-rosa-hcp</code>.</p>
+<h3 id="2-check-hostedcluster-on-the-management-cluster">2. Check HostedCluster on the Management Cluster<a class="headerlink" href="#2-check-hostedcluster-on-the-management-cluster" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ocm<span class="w"> </span>backplane<span class="w"> </span>login<span class="w"> </span><span class="nv">$CLUSTER_ID</span><span class="w"> </span>--manager
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Check the release image on the HostedCluster</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>oc<span class="w"> </span>-n<span class="w"> </span>ocm-production-<span class="si">${</span><span class="nv">CLUSTER_ID</span><span class="si">}</span><span class="w"> </span>get<span class="w"> </span>hostedcluster<span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER_NAME</span><span class="si">}</span><span class="w"> </span>-ojson<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.spec.release&#39;</span>
+</span></code></pre></div>
+<p><strong>If not updated:</strong> Check SC → MC connectivity.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>oc<span class="w"> </span>get<span class="w"> </span>managedclusters<span class="w"> </span><span class="si">${</span><span class="nv">MC_NAME</span><span class="si">}</span>
+</span></code></pre></div>
+Contact <code>@acm-hypershift</code>.</p>
+<h3 id="3-check-hostedcontrolplane-on-the-management-cluster">3. Check HostedControlPlane on the Management Cluster<a class="headerlink" href="#3-check-hostedcontrolplane-on-the-management-cluster" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Check the release image on the HostedControlPlane</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>oc<span class="w"> </span>-n<span class="w"> </span>ocm-production-<span class="si">${</span><span class="nv">CLUSTER_ID</span><span class="si">}</span>-<span class="si">${</span><span class="nv">DOMAIN_PREFIX</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>get<span class="w"> </span>hostedcontrolplanes<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN_PREFIX</span><span class="si">}</span><span class="w"> </span>-ojson<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.spec.releaseImage&#39;</span>
+</span></code></pre></div>
+<p><strong>If not updated:</strong> The HyperShift Operator didn't propagate.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Check HyperShift Operator logs</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>osdctl<span class="w"> </span>rhobs<span class="w"> </span>logs<span class="w"> </span>-C<span class="w"> </span><span class="nv">$MC_CLUSTER_ID</span><span class="w"> </span>-n<span class="w"> </span>hypershift<span class="w"> </span>--level<span class="w"> </span>error<span class="w"> </span>--since<span class="w"> </span>1h
+</span></code></pre></div></p>
+<hr />
+<h2 id="verifying-a-release-image-sha">Verifying a Release Image SHA<a class="headerlink" href="#verifying-a-release-image-sha" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Confirm a release image SHA corresponds to the expected version</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>oc<span class="w"> </span>adm<span class="w"> </span>release<span class="w"> </span>info<span class="w"> </span>quay.io/openshift-release-dev/ocp-release@&lt;sha&gt;<span class="w"> </span>-ojson<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.metadata.version&#39;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="fleet-upgrades-scmc">Fleet Upgrades (SC/MC)<a class="headerlink" href="#fleet-upgrades-scmc" title="Permanent link">&para;</a></h2>
+<p>Management and Service clusters themselves are upgraded by the <strong>Advanced Upgrade Service (AUS)</strong>, which uses a sector-based progressive rollout approach.</p>
+<pre class="mermaid"><code>graph LR
+    subgraph Progression["Sector Progression"]
+        S1["Sector 1\nCanary"]
+        S2["Sector 2\nEarly Adopters"]
+        S3["Sector 3\nMain Fleet Wave 1"]
+        S4["Sector 4\nMain Fleet Wave 2"]
+
+        S1 --&gt;|"success gates"| S2
+        S2 --&gt;|"success gates"| S3
+        S3 --&gt;|"success gates"| S4
+    end
+
+    style S1 fill:#ffebee,color:#b71c1c
+    style S2 fill:#fff3e0,color:#bf360c
+    style S3 fill:#e3f2fd,color:#0d47a1
+    style S4 fill:#e8f5e9,color:#1b5e20</code></pre>
+<p>Key concepts:
+- <strong>Version blocks</strong>: Regex patterns preventing upgrades to untested versions (e.g., <code>^4\.17\..*</code> blocks all 4.17.x)
+- <strong>Version inheritance</strong>: Production clusters can only upgrade to versions already deployed in stage
+- <strong>AUS Dashboard</strong>: <a href="https://grafana.app-sre.devshift.net/d/ukLXCSwVz/aus-cluster-upgrade-overview">Cluster Upgrade Overview</a></p>
+<h3 id="mcsc-upgrade-failure-mcscupgradefailuresop">MC/SC Upgrade Failure (MCSCUpgradeFailureSOP)<a class="headerlink" href="#mcsc-upgrade-failure-mcscupgradefailuresop" title="Permanent link">&para;</a></h3>
+<p>To identify whether an upgrade failure is on an MC or SC:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Is this cluster a Management Cluster?</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>ocm<span class="w"> </span>get<span class="w"> </span>/api/osd_fleet_mgmt/v1/management_clusters<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.items[] | select(.cluster_management_reference.cluster_id == &quot;$INTERNAL_ID&quot;)&#39;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Is this cluster a Service Cluster?</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>ocm<span class="w"> </span>get<span class="w"> </span>/api/osd_fleet_mgmt/v1/service_clusters<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.items[] | select(.cluster_management_reference.cluster_id == &quot;$INTERNAL_ID&quot;)&#39;</span>
+</span></code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Incident Required</p>
+<p>If an upgrade failure is confirmed on an MC or SC, <strong>declare an incident immediately</strong> — both cluster types serve many HCPs and impact can be large.</p>
+</div>
+<hr />
+<h2 id="upgrade-telemetry-dashboards">Upgrade Telemetry Dashboards<a class="headerlink" href="#upgrade-telemetry-dashboards" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Dashboard</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://grafana.app-sre.devshift.net/d/bcb1715d8bfc40da/?orgId=1">Drill Down: ROSA HCP Cluster Upgrades - Control Plane</a></td>
+<td>Track CP upgrade propagation</td>
+</tr>
+<tr>
+<td><a href="https://grafana.app-sre.devshift.net/d/919c6ec2b6d74bdf/?orgId=1">Drill Down: ROSA HCP Nodepool Upgrades</a></td>
+<td>Track NodePool (worker) upgrades</td>
+</tr>
+</tbody>
+</table>
 
 
 

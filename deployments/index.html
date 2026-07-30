@@ -13,10 +13,8 @@
       
       
       
-        <link rel="prev" href="../upgrade-architecture/">
+        <link rel="prev" href="../oncall/">
       
-      
-        <link rel="next" href="../log-forwarding/">
       
       
         
@@ -27,7 +25,7 @@
     
     
       
-        <title>Monitoring & Alerting - ROSA HCP Study Guide</title>
+        <title>Deployments - ROSA HCP Study Guide</title>
       
     
     
@@ -80,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitoring-alerting" class="md-skip">
+        <a href="#sre-deployments" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Monitoring & Alerting
+              Deployments
             
           </span>
         </div>
@@ -265,12 +263,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../lifecycle/" class="md-tabs__link">
           
   
@@ -287,10 +283,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../operations/" class="md-tabs__link">
           
   
@@ -558,31 +556,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -600,7 +595,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -727,37 +722,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Monitoring & Alerting
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
         
   
   
@@ -773,176 +741,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#rhobs-the-centralized-metrics-store" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RHOBS: The Centralized Metrics Store
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#three-metric-sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Three Metric Sources
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Three Metric Sources">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#metric-labels-for-querying" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Metric Labels for Querying
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#observability-operator-obo-and-monitoringstack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Observability Operator (OBO) and MonitoringStack
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-plane-metrics-the-push-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Plane Metrics: The Push Model
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alerting-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alerting Architecture
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alerting Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alert-rule-categories" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Rule Categories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-severity-routing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Severity Routing
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alert-graduation-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Graduation Pipeline
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automatic-alert-suppression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic Alert Suppression
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#querying-metrics-in-rhobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Querying Metrics in RHOBS
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Querying Metrics in RHOBS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-queries" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Queries
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1015,28 +813,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1054,7 +855,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1321,10 +1122,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../deployments/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployments
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1340,6 +1168,209 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propagation-chain-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propagation Chain Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Propagation Chain Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-app-interface-selectorsyncset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. app-interface (SelectorSyncSet)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-service-cluster-acm-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Service Cluster (ACM Policy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-management-cluster-configurationpolicy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Management Cluster (ConfigurationPolicy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-operator-pko" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package Operator (PKO)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package Operator (PKO)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core CRs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package Targets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-pko-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking PKO Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-missing-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Missing Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting Missing Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-check-the-configurationpolicy-on-the-mc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Check the ConfigurationPolicy on the MC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-check-the-acm-policy-on-the-sc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Check the ACM Policy on the SC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-check-the-selectorsyncset-in-hive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Check the SelectorSyncSet in Hive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-check-the-namespace-has-the-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Check the Namespace Has the Label
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sre-deployment-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SRE Deployment Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1379,10 +1410,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rhobs-the-centralized-metrics-store" class="md-nav__link">
+  <a href="#deployment-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RHOBS: The Centralized Metrics Store
+        Deployment Architecture
       
     </span>
   </a>
@@ -1390,22 +1421,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#three-metric-sources" class="md-nav__link">
+  <a href="#propagation-chain-details" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Three Metric Sources
+        Propagation Chain Details
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Three Metric Sources">
+    <nav class="md-nav" aria-label="Propagation Chain Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metric-labels-for-querying" class="md-nav__link">
+  <a href="#1-app-interface-selectorsyncset" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Metric Labels for Querying
+        1. app-interface (SelectorSyncSet)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-service-cluster-acm-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Service Cluster (ACM Policy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-management-cluster-configurationpolicy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Management Cluster (ConfigurationPolicy)
       
     </span>
   </a>
@@ -1418,44 +1471,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#observability-operator-obo-and-monitoringstack" class="md-nav__link">
+  <a href="#package-operator-pko" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observability Operator (OBO) and MonitoringStack
+        Package Operator (PKO)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-plane-metrics-the-push-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Plane Metrics: The Push Model
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alerting-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alerting Architecture
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alerting Architecture">
+    <nav class="md-nav" aria-label="Package Operator (PKO)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#alert-rule-categories" class="md-nav__link">
+  <a href="#core-crs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Rule Categories
+        Core CRs
       
     </span>
   </a>
@@ -1463,10 +1494,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#alert-severity-routing" class="md-nav__link">
+  <a href="#package-targets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Severity Routing
+        Package Targets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-pko-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking PKO Status
       
     </span>
   </a>
@@ -1479,44 +1521,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alert-graduation-pipeline" class="md-nav__link">
+  <a href="#troubleshooting-missing-resources" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Graduation Pipeline
+        Troubleshooting Missing Resources
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automatic-alert-suppression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic Alert Suppression
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#querying-metrics-in-rhobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Querying Metrics in RHOBS
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Querying Metrics in RHOBS">
+    <nav class="md-nav" aria-label="Troubleshooting Missing Resources">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#useful-queries" class="md-nav__link">
+  <a href="#step-1-check-the-configurationpolicy-on-the-mc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Useful Queries
+        Step 1: Check the ConfigurationPolicy on the MC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-check-the-acm-policy-on-the-sc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Check the ACM Policy on the SC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-check-the-selectorsyncset-in-hive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Check the SelectorSyncSet in Hive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-check-the-namespace-has-the-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Check the Namespace Has the Label
       
     </span>
   </a>
@@ -1525,6 +1578,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sre-deployment-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SRE Deployment Testing
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1571,10 +1635,10 @@
     
     
       <li class="md-path__item">
-        <a href="../lifecycle/" class="md-path__link">
+        <a href="../operations/" class="md-path__link">
           
   <span class="md-ellipsis">
-    How HCP Works
+    Operations Reference
   </span>
 
         </a>
@@ -1596,271 +1660,178 @@
   
 
 
-<h1 id="monitoring-alerting">Monitoring &amp; Alerting<a class="headerlink" href="#monitoring-alerting" title="Permanent link">&para;</a></h1>
-<p>In Classic ROSA, each cluster has its own Prometheus instance. With HCP, this model doesn't scale — 80+ HCPs per Management Cluster would mean 80+ Prometheus stacks. Instead, HCP uses a <strong>centralized observability service</strong>: RHOBS.</p>
+<h1 id="sre-deployments">SRE Deployments<a class="headerlink" href="#sre-deployments" title="Permanent link">&para;</a></h1>
+<p>SRE-managed components are deployed to HCP namespaces using a layered propagation chain: app-interface → Service Cluster → Management Cluster → HCP namespace.</p>
 <hr />
-<h2 id="rhobs-the-centralized-metrics-store">RHOBS: The Centralized Metrics Store<a class="headerlink" href="#rhobs-the-centralized-metrics-store" title="Permanent link">&para;</a></h2>
-<p><strong>RHOBS</strong> (Red Hat Observability Service) is a multi-tenant, globally-scoped Prometheus-compatible metrics backend. All HCP metrics from all clusters — Management Cluster, HCPs, and Data Planes — flow there.</p>
+<h2 id="deployment-architecture">Deployment Architecture<a class="headerlink" href="#deployment-architecture" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>graph TB
+    subgraph AI["app-interface"]
+        SSS["SelectorSyncSet\n(source of truth)"]
+    end
+    subgraph SC["Service Cluster"]
+        ACM_POLICY["ACM Policy\n(syncs to MCs)"]
+    end
     subgraph MC["Management Cluster"]
-        MCPROM["Prometheus\n(MC self-monitoring)"]
-        MCFWD["MonitoringStack CR\nOBO metrics pipeline"]
+        CONF_POLICY["ConfigurationPolicy\n(applies to HCP namespaces)"]
+    end
+    subgraph HCP["HCP Namespaces"]
+        RESOURCES["Managed Resources\n(ConfigMaps, Secrets, RBAC, etc.)"]
     end
 
-    subgraph HCP1["HCP Namespace 1"]
-        HCP1PROM["Prometheus\n(HCP-level metrics)"]
-        HCP1FWD["MonitoringStack CR"]
-    end
+    SSS --&gt;|"ACM SyncSet"| ACM_POLICY
+    ACM_POLICY --&gt;|"propagation\nto ManagedClusters"| CONF_POLICY
+    CONF_POLICY --&gt;|"namespaceSelector:\nhosted-control-plane=true"| RESOURCES
 
-    subgraph HCP2["HCP Namespace 2"]
-        HCP2PROM["Prometheus\n(HCP-level metrics)"]
-        HCP2FWD["MonitoringStack CR"]
-    end
-
-    subgraph DP["Data Plane (Customer AWS)"]
-        DPPROM["Prometheus\n(worker node / workload metrics)"]
-        DPFWD["metrics-forwarder\nDaemonSet + proxy"]
-    end
-
-    RHOBS[("RHOBS\nCentralized Store\n(Thanos Receive)")]
-    AM["RHOBS Alertmanager\n→ PagerDuty"]
-
-    MCPROM --&gt; MCFWD --&gt; RHOBS
-    HCP1PROM --&gt; HCP1FWD --&gt; RHOBS
-    HCP2PROM --&gt; HCP2FWD --&gt; RHOBS
-    DPPROM --&gt; DPFWD --&gt; RHOBS
-    RHOBS --&gt; AM
-
-    style RHOBS fill:#ede7f6,color:#4a148c
-    style AM fill:#ffebee,color:#b71c1c
-    style MC fill:#e3f2fd,stroke:#1565c0
-    style DP fill:#fff3e0,stroke:#e65100</code></pre>
+    style SSS fill:#e3f2fd,color:#0d47a1
+    style ACM_POLICY fill:#ede7f6,color:#4a148c
+    style CONF_POLICY fill:#e8f5e9,color:#1b5e20
+    style RESOURCES fill:#fff3e0,color:#bf360c</code></pre>
+<p>All namespaces with the label <code>hypershift.openshift.io/hosted-control-plane=true</code> receive SRE-managed resources through this chain.</p>
 <hr />
-<h2 id="three-metric-sources">Three Metric Sources<a class="headerlink" href="#three-metric-sources" title="Permanent link">&para;</a></h2>
-<p>Each HCP has metrics flowing from <strong>three distinct sources</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Source</th>
-<th>What it measures</th>
-<th>Label added</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Management Cluster</strong></td>
-<td>kube-apiserver pod CPU/memory, etcd performance, component health</td>
-<td><code>_mc_id="hs-mc-xxxxx"</code></td>
-</tr>
-<tr>
-<td><strong>HCP level</strong></td>
-<td>per-HCP control plane component metrics (kube-apiserver request rates, etcd leader changes)</td>
-<td><code>_id="customer-cluster-id"</code></td>
-</tr>
-<tr>
-<td><strong>Data Plane</strong></td>
-<td>worker node CPU/memory, kubelet metrics, custom workload metrics</td>
-<td><code>_id="customer-cluster-id"</code>, <code>source="customer"</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="metric-labels-for-querying">Metric Labels for Querying<a class="headerlink" href="#metric-labels-for-querying" title="Permanent link">&para;</a></h3>
-<p>All metrics in RHOBS are tagged with these labels:</p>
-<div class="language-promql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Example: find all metrics from a specific HCP</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123def456</span><span class="p">&quot;}</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Example: find all metrics from a specific MC</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span><span class="nl">_mc_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">hs-mc-1sek0vq5g</span><span class="p">&quot;}</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Example: find all metrics from a region</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123</span><span class="p">&quot;,</span><span class="w"> </span><span class="nl">region</span><span class="o">=</span><span class="p">&quot;</span><span class="s">us-east-1</span><span class="p">&quot;}</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Example: find data plane metrics only</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123</span><span class="p">&quot;,</span><span class="w"> </span><span class="nl">source</span><span class="o">=</span><span class="p">&quot;</span><span class="s">customer</span><span class="p">&quot;}</span>
+<h2 id="propagation-chain-details">Propagation Chain Details<a class="headerlink" href="#propagation-chain-details" title="Permanent link">&para;</a></h2>
+<h3 id="1-app-interface-selectorsyncset">1. app-interface (SelectorSyncSet)<a class="headerlink" href="#1-app-interface-selectorsyncset" title="Permanent link">&para;</a></h3>
+<p>SREs define resources in <a href="https://gitlab.cee.redhat.com/service/app-interface">app-interface</a> using <code>SelectorSyncSet</code> CRs. These select Management Clusters based on labels:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hive.openshift.io/v1</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SelectorSyncSet</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hcp-sre-configs</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">clusterDeploymentSelector</span><span class="p">:</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">api.openshift.com/management-cluster</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">resources</span><span class="p">:</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">policy.open-cluster-management.io/v1</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Policy</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="c1"># ... ACM Policy definition</span>
 </span></code></pre></div>
-<hr />
-<h2 id="observability-operator-obo-and-monitoringstack">Observability Operator (OBO) and MonitoringStack<a class="headerlink" href="#observability-operator-obo-and-monitoringstack" title="Permanent link">&para;</a></h2>
-<p>The <strong>Observability Operator (OBO)</strong> manages the metrics pipeline within each HCP namespace using a <code>MonitoringStack</code> CR.</p>
-<pre class="mermaid"><code>graph LR
-    OBO["Observability Operator\n(on MC)"]
-    MS["MonitoringStack CR\n(in HCP namespace)"]
-    PROM["Prometheus\n(in HCP namespace)"]
-    RULE["PrometheusRule CRs\n(alert rules)"]
-    SEND["RemoteWrite\n→ RHOBS endpoint"]
-
-    OBO --&gt;|"reconciles"| MS
-    MS --&gt;|"deploys"| PROM
-    PROM --&gt;|"scrapes"| RULE
-    PROM --&gt;|"remote_write"| SEND
-    SEND --&gt;|"pushes metrics"| RHOBS["RHOBS"]
-
-    style RHOBS fill:#ede7f6,color:#4a148c</code></pre>
-<p>The <code>MonitoringStack</code> CR configures:
-- Prometheus retention (usually short — data is pushed, not stored)
-- RemoteWrite endpoint (RHOBS ingress URL + auth token)
-- Scrape targets (the HCP components)</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># View MonitoringStack in an HCP namespace</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>oc<span class="w"> </span>get<span class="w"> </span>monitoringstack<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NS</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>oc<span class="w"> </span>describe<span class="w"> </span>monitoringstack<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NS</span><span class="w"> </span><span class="nv">$STACK_NAME</span>
+<h3 id="2-service-cluster-acm-policy">2. Service Cluster (ACM Policy)<a class="headerlink" href="#2-service-cluster-acm-policy" title="Permanent link">&para;</a></h3>
+<p>ACM on the Service Cluster receives the Policy from <code>SelectorSyncSet</code> and propagates it to all registered Management Clusters via <code>PlacementRule</code>.</p>
+<h3 id="3-management-cluster-configurationpolicy">3. Management Cluster (ConfigurationPolicy)<a class="headerlink" href="#3-management-cluster-configurationpolicy" title="Permanent link">&para;</a></h3>
+<p>The <code>ConfigurationPolicy</code> on the MC applies the desired resources to all namespaces matching the selector:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">namespaceSelector</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">matchLabels</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">hypershift.openshift.io/hosted-control-plane</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
 </span></code></pre></div>
+<p>This ensures resources appear in ALL HCP namespaces on the MC automatically when new HCPs are created.</p>
 <hr />
-<h2 id="data-plane-metrics-the-push-model">Data Plane Metrics: The Push Model<a class="headerlink" href="#data-plane-metrics-the-push-model" title="Permanent link">&para;</a></h2>
-<p>Worker node metrics can't be pulled by RHOBS (the DP is in a separate VPC). Instead, a <strong>push model</strong> over PrivateLink is used.</p>
-<pre class="mermaid"><code>sequenceDiagram
-    participant PROM as Prometheus&lt;br/&gt;(on worker nodes)
-    participant MF as metrics-forwarder&lt;br/&gt;(DaemonSet on workers)
-    participant PL as PrivateLink Proxy&lt;br/&gt;(in customer VPC)
-    participant RHOBS as RHOBS Ingestor
-
-    PROM-&gt;&gt;MF: Scrape + buffer metrics
-    MF-&gt;&gt;PL: HTTPS POST (remote_write) via PrivateLink
-    PL-&gt;&gt;RHOBS: Forward to RHOBS ingestion endpoint
-    RHOBS--&gt;&gt;MF: 204 OK</code></pre>
-<ul>
-<li><code>metrics-forwarder</code> runs as a DaemonSet on worker nodes</li>
-<li>Each forwarder has a certificate provisioned via the hosted cluster's CA</li>
-<li>Traffic routes through the same PrivateLink endpoint used by the kubelet</li>
-<li>Zero egress clusters use this exclusively — no internet access required</li>
-</ul>
-<hr />
-<h2 id="alerting-architecture">Alerting Architecture<a class="headerlink" href="#alerting-architecture" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>graph LR
-    RHOBS[("RHOBS\n(Thanos Ruler)")]
-    RULES["Alert Rule Files\n(stored in RHOBS)"]
-    AM["RHOBS Alertmanager"]
-    PD_HIGH["PagerDuty\n(Critical Team)"]
-    PD_LOW["PagerDuty\n(Warning Team)"]
-    DEAD["Dead Man's Switch\n(always-firing alert)"]
-
-    RHOBS --&gt;|"evaluate rules"| RULES
-    RULES --&gt;|"fire alerts"| AM
-    AM --&gt;|"severity: critical"| PD_HIGH
-    AM --&gt;|"severity: warning"| PD_LOW
-    RHOBS --&gt;|"heartbeat"| DEAD
-
-    style RHOBS fill:#ede7f6,color:#4a148c
-    style AM fill:#ffebee,color:#b71c1c
-    style PD_HIGH fill:#ffebee,color:#b71c1c
-    style PD_LOW fill:#fff3e0,color:#bf360c</code></pre>
-<h3 id="alert-rule-categories">Alert Rule Categories<a class="headerlink" href="#alert-rule-categories" title="Permanent link">&para;</a></h3>
+<h2 id="package-operator-pko">Package Operator (PKO)<a class="headerlink" href="#package-operator-pko" title="Permanent link">&para;</a></h2>
+<p>The Package Operator provides a declarative way to deploy collections of resources to hosted clusters and/or their HCP namespaces. It handles phased deployment and lifecycle management.</p>
+<h3 id="core-crs">Core CRs<a class="headerlink" href="#core-crs" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Category</th>
-<th>File Pattern</th>
-<th>Examples</th>
+<th>CR</th>
+<th>Scope</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Cluster health</td>
-<td><code>cluster-*.yaml</code></td>
-<td><code>HostedClusterAvailable</code>, <code>HostedClusterDegraded</code></td>
+<td><code>Package</code></td>
+<td>HCP namespace</td>
+<td>Declares which package to deploy</td>
 </tr>
 <tr>
-<td>etcd</td>
-<td><code>etcd-*.yaml</code></td>
-<td><code>EtcdHighNumberOfLeaderChanges</code>, <code>EtcdNoLeader</code></td>
+<td><code>ObjectSet</code></td>
+<td>HCP namespace</td>
+<td>One version of the package's resources</td>
 </tr>
 <tr>
-<td>API server</td>
-<td><code>kube-apiserver-*.yaml</code></td>
-<td><code>KubeAPIErrorBudgetBurn</code>, <code>KubeAPILatencyHigh</code></td>
-</tr>
-<tr>
-<td>Node pool</td>
-<td><code>nodepool-*.yaml</code></td>
-<td><code>NodePoolDegraded</code>, <code>NodePoolNotScaling</code></td>
-</tr>
-<tr>
-<td>Konnectivity</td>
-<td><code>konnectivity-*.yaml</code></td>
-<td><code>KonnectivityServerDown</code></td>
-</tr>
-<tr>
-<td>Capacity</td>
-<td><code>capacity-*.yaml</code></td>
-<td><code>RequestServingNodePoolLow</code></td>
+<td><code>ObjectSetPhase</code></td>
+<td>HCP namespace</td>
+<td>A deployment phase (resources + probes)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="alert-severity-routing">Alert Severity Routing<a class="headerlink" href="#alert-severity-routing" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TB
+    PKG["Package CR\n(desired state)"]
+    OBJ["ObjectSet CR\n(current version's resources)"]
+    PHASE1["ObjectSetPhase\n(phase 1: infra)"]
+    PHASE2["ObjectSetPhase\n(phase 2: application)"]
+    R1["ConfigMap, Secret, etc.\n(phase 1 resources)"]
+    R2["Deployment, Service, etc.\n(phase 2 resources)"]
+
+    PKG --&gt;|"reconciles to"| OBJ
+    OBJ --&gt; PHASE1
+    OBJ --&gt; PHASE2
+    PHASE1 --&gt;|"contains"| R1
+    PHASE2 --&gt;|"contains"| R2
+
+    style PKG fill:#e3f2fd,color:#0d47a1
+    style OBJ fill:#ede7f6,color:#4a148c
+    style PHASE1 fill:#e8f5e9,color:#1b5e20
+    style PHASE2 fill:#e8f5e9,color:#1b5e20</code></pre>
+<h3 id="package-targets">Package Targets<a class="headerlink" href="#package-targets" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Severity</th>
-<th>PagerDuty team</th>
-<th>Response SLA</th>
+<th>Phase Target</th>
+<th>What it means</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>critical</code></td>
-<td>On-call (24/7)</td>
-<td>Immediate</td>
+<td><code>hosted-cluster</code></td>
+<td>Deploy to the guest cluster (customer-visible)</td>
 </tr>
 <tr>
-<td><code>warning</code></td>
-<td>Engineering</td>
-<td>Business hours</td>
-</tr>
-<tr>
-<td><code>info</code></td>
-<td>(no page)</td>
-<td>Dashboards only</td>
+<td><code>hcp-namespace</code></td>
+<td>Deploy to the HCP namespace on the MC (SRE-visible only)</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="alert-graduation-pipeline">Alert Graduation Pipeline<a class="headerlink" href="#alert-graduation-pipeline" title="Permanent link">&para;</a></h2>
-<p>New alerts don't go directly to <code>critical</code>. They go through a graduation pipeline to reduce alert fatigue:</p>
-<pre class="mermaid"><code>graph LR
-    SOAK["Soaking\n(monitoring only,\nnot paging)"]
-    WARN["Warning\n(pages warning team)"]
-    CRIT["Critical\n(pages on-call)"]
-
-    SOAK --&gt;|"No false positives\nafter 2 weeks"| WARN
-    WARN --&gt;|"Actionable + reliable\nafter 2 weeks"| CRIT
-    WARN --&gt;|"False positive"| SOAK</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Before escalating an alert issue</p>
-<p>Check if the alert is in soaking or warning phase — it may be a known-unreliable alert that's being tuned.</p>
-</div>
-<hr />
-<h2 id="automatic-alert-suppression">Automatic Alert Suppression<a class="headerlink" href="#automatic-alert-suppression" title="Permanent link">&para;</a></h2>
-<p>When a cluster is intentionally degraded (e.g., during maintenance), alerts can be automatically suppressed:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Suppress all alerts for a cluster</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>oc<span class="w"> </span>annotate<span class="w"> </span>hostedcluster<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HC_NS</span><span class="w"> </span><span class="nv">$CLUSTER_NAME</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>hypershift.openshift.io/disable-cluster-alerts<span class="o">=</span><span class="nb">true</span>
+<h3 id="checking-pko-status">Checking PKO Status<a class="headerlink" href="#checking-pko-status" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Check packages in an HCP namespace (on the MC)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ocm<span class="w"> </span>backplane<span class="w"> </span>login<span class="w"> </span><span class="nv">$CLUSTER_ID</span><span class="w"> </span>--manager
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>oc<span class="w"> </span>get<span class="w"> </span>packages<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NAMESPACE</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Remove suppression</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>oc<span class="w"> </span>annotate<span class="w"> </span>hostedcluster<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HC_NS</span><span class="w"> </span><span class="nv">$CLUSTER_NAME</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span>hypershift.openshift.io/disable-cluster-alerts-
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Check ObjectSets</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>oc<span class="w"> </span>get<span class="w"> </span>objectsets<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NAMESPACE</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># Check for phased deployment failures</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>oc<span class="w"> </span>describe<span class="w"> </span>objectset<span class="w"> </span>&lt;name&gt;<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NAMESPACE</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A5<span class="w"> </span><span class="s2">&quot;Conditions&quot;</span>
 </span></code></pre></div>
-<p>When <code>hypershift_cluster_alerts_disabled</code> metric is <code>1</code>, the RHOBS Alertmanager inhibition rules suppress all HCP-specific alerts for that cluster.</p>
 <hr />
-<h2 id="querying-metrics-in-rhobs">Querying Metrics in RHOBS<a class="headerlink" href="#querying-metrics-in-rhobs" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Via Grafana (preferred for dashboards)</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># Use the RHOBS Grafana instance for your environment</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Via promtool / curl (for quick checks)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="s2">&quot;https://rhobs.example.com/api/v1/query?query=up{_id=&#39;</span><span class="nv">$CLUSTER_ID</span><span class="s2">&#39;}&quot;</span>
+<h2 id="troubleshooting-missing-resources">Troubleshooting Missing Resources<a class="headerlink" href="#troubleshooting-missing-resources" title="Permanent link">&para;</a></h2>
+<p>If an SRE-managed resource is missing from an HCP namespace:</p>
+<h3 id="step-1-check-the-configurationpolicy-on-the-mc">Step 1: Check the ConfigurationPolicy on the MC<a class="headerlink" href="#step-1-check-the-configurationpolicy-on-the-mc" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ocm<span class="w"> </span>backplane<span class="w"> </span>login<span class="w"> </span><span class="nv">$CLUSTER_ID</span><span class="w"> </span>--manager
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>oc<span class="w"> </span>get<span class="w"> </span>configurationpolicies<span class="w"> </span>-A<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="nv">$POLICY_NAME</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>oc<span class="w"> </span>describe<span class="w"> </span>configurationpolicy<span class="w"> </span><span class="nv">$POLICY_NAME</span><span class="w"> </span>-n<span class="w"> </span>open-cluster-management-agent-addon
 </span></code></pre></div>
-<h3 id="useful-queries">Useful Queries<a class="headerlink" href="#useful-queries" title="Permanent link">&para;</a></h3>
-<div class="language-promql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Is the HCP available?</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">hypershift_cluster_available</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># etcd leader changes in the last hour</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kr">increase</span><span class="o">(</span><span class="nv">etcd_server_leader_changes_seen_total</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}[</span><span class="s">1h</span><span class="p">]</span><span class="o">)</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># kube-apiserver request latency (p99)</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kr">histogram_quantile</span><span class="o">(</span><span class="mf">0.99</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">(</span><span class="nv">le</span><span class="o">)</span><span class="w"> </span><span class="o">(</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="kr">rate</span><span class="o">(</span><span class="nv">apiserver_request_duration_seconds_bucket</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}[</span><span class="s">5m</span><span class="p">]</span><span class="o">)</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="o">))</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Worker node memory usage</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="k">sum</span><span class="o">(</span><span class="nv">node_memory_MemUsed_bytes</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}</span><span class="o">)</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">(</span><span class="nv">instance</span><span class="o">)</span>
+<p>A <code>NonCompliant</code> status means the MC failed to apply the resources to the HCP namespace.</p>
+<h3 id="step-2-check-the-acm-policy-on-the-sc">Step 2: Check the ACM Policy on the SC<a class="headerlink" href="#step-2-check-the-acm-policy-on-the-sc" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ocm<span class="w"> </span>backplane<span class="w"> </span>login<span class="w"> </span><span class="nv">$CLUSTER_ID</span><span class="w"> </span>--service
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>oc<span class="w"> </span>get<span class="w"> </span>policy<span class="w"> </span><span class="nv">$POLICY_NAME</span><span class="w"> </span>-n<span class="w"> </span>open-cluster-management
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>oc<span class="w"> </span>get<span class="w"> </span>policy<span class="w"> </span><span class="nv">$POLICY_NAME</span><span class="w"> </span>-n<span class="w"> </span>open-cluster-management<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A10<span class="w"> </span><span class="s2">&quot;status&quot;</span>
+</span></code></pre></div>
+<h3 id="step-3-check-the-selectorsyncset-in-hive">Step 3: Check the SelectorSyncSet in Hive<a class="headerlink" href="#step-3-check-the-selectorsyncset-in-hive" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>oc<span class="w"> </span>get<span class="w"> </span>selectorsyncset<span class="w"> </span><span class="nv">$SSS_NAME</span><span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A20<span class="w"> </span><span class="s2">&quot;status&quot;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>oc<span class="w"> </span>get<span class="w"> </span>syncsetinstance<span class="w"> </span>-A<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="nv">$SSS_NAME</span>
+</span></code></pre></div>
+<h3 id="step-4-check-the-namespace-has-the-label">Step 4: Check the Namespace Has the Label<a class="headerlink" href="#step-4-check-the-namespace-has-the-label" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>oc<span class="w"> </span>get<span class="w"> </span>namespace<span class="w"> </span><span class="nv">$HCP_NAMESPACE</span><span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;hosted-control-plane&quot;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># Must have: hypershift.openshift.io/hosted-control-plane: &quot;true&quot;</span>
+</span></code></pre></div>
+<p>If the label is missing, re-add it:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ocm<span class="w"> </span>backplane<span class="w"> </span>elevate<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$JIRA_TICKET</span><span class="s2">&quot;</span><span class="w"> </span>--<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>label<span class="w"> </span>namespace<span class="w"> </span><span class="nv">$HCP_NAMESPACE</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>hypershift.openshift.io/hosted-control-plane<span class="o">=</span><span class="nb">true</span>
+</span></code></pre></div></p>
+<hr />
+<h2 id="sre-deployment-testing">SRE Deployment Testing<a class="headerlink" href="#sre-deployment-testing" title="Permanent link">&para;</a></h2>
+<p>For testing a new SRE-managed resource deployment without app-interface:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Dry-run the ConfigurationPolicy application</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>configurationpolicy.yaml<span class="w"> </span>--dry-run<span class="o">=</span>server
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Check ACM compliance</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>oc<span class="w"> </span>get<span class="w"> </span>policy<span class="w"> </span>-A<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.items[] | [.metadata.name, .status.compliant] | @tsv&#39;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># Force reconciliation of a ConfigurationPolicy</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>oc<span class="w"> </span>annotate<span class="w"> </span>configurationpolicy<span class="w"> </span><span class="nv">$POLICY_NAME</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">  </span>-n<span class="w"> </span>open-cluster-management-agent-addon<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">  </span>policy.open-cluster-management.io/trigger-update<span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%s<span class="k">)</span>
 </span></code></pre></div>
 
 

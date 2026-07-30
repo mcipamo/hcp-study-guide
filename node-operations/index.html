@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../upgrade-architecture/">
+        <link rel="prev" href="../etcd/">
       
       
-        <link rel="next" href="../log-forwarding/">
+        <link rel="next" href="../troubleshooting/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Monitoring & Alerting - ROSA HCP Study Guide</title>
+        <title>Node Operations - ROSA HCP Study Guide</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitoring-alerting" class="md-skip">
+        <a href="#node-operations" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Monitoring & Alerting
+              Node Operations
             
           </span>
         </div>
@@ -265,12 +265,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../lifecycle/" class="md-tabs__link">
           
   
@@ -287,10 +285,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../operations/" class="md-tabs__link">
           
   
@@ -558,31 +558,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -600,7 +597,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -727,37 +724,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Monitoring & Alerting
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
         
   
   
@@ -773,176 +743,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#rhobs-the-centralized-metrics-store" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RHOBS: The Centralized Metrics Store
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#three-metric-sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Three Metric Sources
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Three Metric Sources">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#metric-labels-for-querying" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Metric Labels for Querying
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#observability-operator-obo-and-monitoringstack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Observability Operator (OBO) and MonitoringStack
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-plane-metrics-the-push-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Plane Metrics: The Push Model
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alerting-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alerting Architecture
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Alerting Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alert-rule-categories" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Rule Categories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-severity-routing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Severity Routing
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alert-graduation-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alert Graduation Pipeline
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automatic-alert-suppression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic Alert Suppression
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#querying-metrics-in-rhobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Querying Metrics in RHOBS
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Querying Metrics in RHOBS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-queries" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Queries
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1015,28 +815,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1054,7 +857,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1209,10 +1012,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../node-operations/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Node Operations
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1228,6 +1058,176 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#request-serving-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request-Serving Nodes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request-Serving Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-types-of-nodes-on-mcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Types of Nodes on MCs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#t-shirt-node-sizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        T-Shirt Node Sizing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#placeholder-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Placeholder System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resizing-non-serving-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resizing Non-Serving Nodes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resizing Non-Serving Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checking-current-node-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking Current Node Sizes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resize-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resize Procedure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-serving-autoscaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Serving Autoscaling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Serving Autoscaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autoscaling-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoscaling States
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-autoscaling-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking Autoscaling Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-serving-node-resize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-Serving Node Resize
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-affinity-and-tolerations-for-hcp-pods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node Affinity and Tolerations for HCP Pods
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1379,33 +1379,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rhobs-the-centralized-metrics-store" class="md-nav__link">
+  <a href="#request-serving-nodes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RHOBS: The Centralized Metrics Store
+        Request-Serving Nodes
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#three-metric-sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Three Metric Sources
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Three Metric Sources">
+    <nav class="md-nav" aria-label="Request-Serving Nodes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metric-labels-for-querying" class="md-nav__link">
+  <a href="#two-types-of-nodes-on-mcs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Metric Labels for Querying
+        Two Types of Nodes on MCs
       
     </span>
   </a>
@@ -1418,10 +1407,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#observability-operator-obo-and-monitoringstack" class="md-nav__link">
+  <a href="#t-shirt-node-sizing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observability Operator (OBO) and MonitoringStack
+        T-Shirt Node Sizing
       
     </span>
   </a>
@@ -1429,10 +1418,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-plane-metrics-the-push-model" class="md-nav__link">
+  <a href="#placeholder-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data Plane Metrics: The Push Model
+        Placeholder System
       
     </span>
   </a>
@@ -1440,22 +1429,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alerting-architecture" class="md-nav__link">
+  <a href="#resizing-non-serving-nodes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alerting Architecture
+        Resizing Non-Serving Nodes
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Alerting Architecture">
+    <nav class="md-nav" aria-label="Resizing Non-Serving Nodes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#alert-rule-categories" class="md-nav__link">
+  <a href="#checking-current-node-sizes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Rule Categories
+        Checking Current Node Sizes
       
     </span>
   </a>
@@ -1463,10 +1452,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#alert-severity-routing" class="md-nav__link">
+  <a href="#resize-procedure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Severity Routing
+        Resize Procedure
       
     </span>
   </a>
@@ -1479,44 +1468,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#alert-graduation-pipeline" class="md-nav__link">
+  <a href="#request-serving-autoscaling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alert Graduation Pipeline
+        Request Serving Autoscaling
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automatic-alert-suppression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic Alert Suppression
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#querying-metrics-in-rhobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Querying Metrics in RHOBS
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Querying Metrics in RHOBS">
+    <nav class="md-nav" aria-label="Request Serving Autoscaling">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#useful-queries" class="md-nav__link">
+  <a href="#autoscaling-states" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Useful Queries
+        Autoscaling States
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-autoscaling-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking Autoscaling Status
       
     </span>
   </a>
@@ -1525,6 +1503,28 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-serving-node-resize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-Serving Node Resize
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-affinity-and-tolerations-for-hcp-pods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node Affinity and Tolerations for HCP Pods
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1571,10 +1571,10 @@
     
     
       <li class="md-path__item">
-        <a href="../lifecycle/" class="md-path__link">
+        <a href="../operations/" class="md-path__link">
           
   <span class="md-ellipsis">
-    How HCP Works
+    Operations Reference
   </span>
 
         </a>
@@ -1596,272 +1596,224 @@
   
 
 
-<h1 id="monitoring-alerting">Monitoring &amp; Alerting<a class="headerlink" href="#monitoring-alerting" title="Permanent link">&para;</a></h1>
-<p>In Classic ROSA, each cluster has its own Prometheus instance. With HCP, this model doesn't scale — 80+ HCPs per Management Cluster would mean 80+ Prometheus stacks. Instead, HCP uses a <strong>centralized observability service</strong>: RHOBS.</p>
+<h1 id="node-operations">Node Operations<a class="headerlink" href="#node-operations" title="Permanent link">&para;</a></h1>
+<p>How request-serving nodes work, how to resize them, and how autoscaling operates in ROSA HCP.</p>
 <hr />
-<h2 id="rhobs-the-centralized-metrics-store">RHOBS: The Centralized Metrics Store<a class="headerlink" href="#rhobs-the-centralized-metrics-store" title="Permanent link">&para;</a></h2>
-<p><strong>RHOBS</strong> (Red Hat Observability Service) is a multi-tenant, globally-scoped Prometheus-compatible metrics backend. All HCP metrics from all clusters — Management Cluster, HCPs, and Data Planes — flow there.</p>
-<pre class="mermaid"><code>graph TB
-    subgraph MC["Management Cluster"]
-        MCPROM["Prometheus\n(MC self-monitoring)"]
-        MCFWD["MonitoringStack CR\nOBO metrics pipeline"]
+<h2 id="request-serving-nodes">Request-Serving Nodes<a class="headerlink" href="#request-serving-nodes" title="Permanent link">&para;</a></h2>
+<p>ROSA HCP uses a <strong>request-serving node</strong> model where a subset of MC nodes are dedicated to serving HCP API traffic. This prevents noisy neighbors at the node level.</p>
+<h3 id="two-types-of-nodes-on-mcs">Two Types of Nodes on MCs<a class="headerlink" href="#two-types-of-nodes-on-mcs" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    subgraph MC["Management Cluster Nodes"]
+        RS["Request-Serving Nodes\n(T-shirt sized)"]
+        NRS["Non-Serving Nodes\n(HyperShift Operator, ACM, etc.)"]
+    end
+    subgraph HCP["HCP Namespace"]
+        KAS["kube-apiserver"]
+        ETCD["etcd"]
+        Operators["HCP operators"]
     end
 
-    subgraph HCP1["HCP Namespace 1"]
-        HCP1PROM["Prometheus\n(HCP-level metrics)"]
-        HCP1FWD["MonitoringStack CR"]
-    end
+    RS --&gt;|"hosts"| KAS
+    RS --&gt;|"hosts"| ETCD
+    NRS --&gt;|"hosts"| Operators
 
-    subgraph HCP2["HCP Namespace 2"]
-        HCP2PROM["Prometheus\n(HCP-level metrics)"]
-        HCP2FWD["MonitoringStack CR"]
-    end
-
-    subgraph DP["Data Plane (Customer AWS)"]
-        DPPROM["Prometheus\n(worker node / workload metrics)"]
-        DPFWD["metrics-forwarder\nDaemonSet + proxy"]
-    end
-
-    RHOBS[("RHOBS\nCentralized Store\n(Thanos Receive)")]
-    AM["RHOBS Alertmanager\n→ PagerDuty"]
-
-    MCPROM --&gt; MCFWD --&gt; RHOBS
-    HCP1PROM --&gt; HCP1FWD --&gt; RHOBS
-    HCP2PROM --&gt; HCP2FWD --&gt; RHOBS
-    DPPROM --&gt; DPFWD --&gt; RHOBS
-    RHOBS --&gt; AM
-
-    style RHOBS fill:#ede7f6,color:#4a148c
-    style AM fill:#ffebee,color:#b71c1c
-    style MC fill:#e3f2fd,stroke:#1565c0
-    style DP fill:#fff3e0,stroke:#e65100</code></pre>
+    style RS fill:#e3f2fd,color:#0d47a1
+    style NRS fill:#ede7f6,color:#4a148c
+    style KAS fill:#e8f5e9,color:#1b5e20
+    style ETCD fill:#fff3e0,color:#bf360c</code></pre>
+<p>Request-serving nodes come in <strong>pairs</strong> (for HA). Each pair serves a specific set of HCPs. The size of each pair scales with the aggregate workload of the HCPs assigned to it.</p>
 <hr />
-<h2 id="three-metric-sources">Three Metric Sources<a class="headerlink" href="#three-metric-sources" title="Permanent link">&para;</a></h2>
-<p>Each HCP has metrics flowing from <strong>three distinct sources</strong>:</p>
+<h2 id="t-shirt-node-sizing">T-Shirt Node Sizing<a class="headerlink" href="#t-shirt-node-sizing" title="Permanent link">&para;</a></h2>
+<p>Node pairs are sized in T-shirt sizes based on HCP load:</p>
 <table>
 <thead>
 <tr>
-<th>Source</th>
-<th>What it measures</th>
-<th>Label added</th>
+<th>T-Shirt</th>
+<th>CPU</th>
+<th>Memory</th>
+<th>Typical HCP count</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Management Cluster</strong></td>
-<td>kube-apiserver pod CPU/memory, etcd performance, component health</td>
-<td><code>_mc_id="hs-mc-xxxxx"</code></td>
+<td><code>small</code></td>
+<td>4 vCPU</td>
+<td>16 GB</td>
+<td>&lt; 5 API-light HCPs</td>
 </tr>
 <tr>
-<td><strong>HCP level</strong></td>
-<td>per-HCP control plane component metrics (kube-apiserver request rates, etcd leader changes)</td>
-<td><code>_id="customer-cluster-id"</code></td>
+<td><code>medium</code></td>
+<td>8 vCPU</td>
+<td>32 GB</td>
+<td>5–15 HCPs</td>
 </tr>
 <tr>
-<td><strong>Data Plane</strong></td>
-<td>worker node CPU/memory, kubelet metrics, custom workload metrics</td>
-<td><code>_id="customer-cluster-id"</code>, <code>source="customer"</code></td>
+<td><code>large</code></td>
+<td>16 vCPU</td>
+<td>64 GB</td>
+<td>15–40 HCPs</td>
+</tr>
+<tr>
+<td><code>xlarge</code></td>
+<td>32 vCPU</td>
+<td>128 GB</td>
+<td>40+ HCPs</td>
 </tr>
 </tbody>
 </table>
-<h3 id="metric-labels-for-querying">Metric Labels for Querying<a class="headerlink" href="#metric-labels-for-querying" title="Permanent link">&para;</a></h3>
-<p>All metrics in RHOBS are tagged with these labels:</p>
-<div class="language-promql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Example: find all metrics from a specific HCP</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123def456</span><span class="p">&quot;}</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Example: find all metrics from a specific MC</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span><span class="nl">_mc_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">hs-mc-1sek0vq5g</span><span class="p">&quot;}</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Example: find all metrics from a region</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123</span><span class="p">&quot;,</span><span class="w"> </span><span class="nl">region</span><span class="o">=</span><span class="p">&quot;</span><span class="s">us-east-1</span><span class="p">&quot;}</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Example: find data plane metrics only</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">abc123</span><span class="p">&quot;,</span><span class="w"> </span><span class="nl">source</span><span class="o">=</span><span class="p">&quot;</span><span class="s">customer</span><span class="p">&quot;}</span>
+<p>The autoscaler monitors CPU and memory utilization across the node pair and recommends upsizing when thresholds are exceeded.</p>
+<hr />
+<h2 id="placeholder-system">Placeholder System<a class="headerlink" href="#placeholder-system" title="Permanent link">&para;</a></h2>
+<p>The placeholder system ensures request-serving nodes are available before HCPs are scheduled to them:</p>
+<pre class="mermaid"><code>flowchart LR
+    NEW_HCP["New HCP Cluster\n(being assigned to MC)"]
+    SCHED["HCP Scheduler\n(selects node pair)"]
+    PLACEHOLDER["Placeholder Pod\n(reserves capacity)"]
+    NODE["Request-Serving Node"]
+
+    NEW_HCP --&gt;|"assignment"| SCHED
+    SCHED --&gt;|"check available capacity"| PLACEHOLDER
+    PLACEHOLDER --&gt;|"warm slot reserved"| NODE
+    NODE --&gt;|"KAS/etcd now schedulable"| NEW_HCP
+
+    style NEW_HCP fill:#e3f2fd,color:#0d47a1
+    style SCHED fill:#ede7f6,color:#4a148c
+    style PLACEHOLDER fill:#fff8e1,color:#e65100
+    style NODE fill:#e8f5e9,color:#1b5e20</code></pre>
+<p>Placeholder pods use <code>PriorityClass: hypershift-control-plane</code> and hold slots via resource requests (not actual CPU/memory consumption). Real HCP pods displace placeholders when scheduled.</p>
+<hr />
+<h2 id="resizing-non-serving-nodes">Resizing Non-Serving Nodes<a class="headerlink" href="#resizing-non-serving-nodes" title="Permanent link">&para;</a></h2>
+<p>When a request-serving node pair is undersized, the <code>RequestServingNodesNeedUpscale</code> alert fires. SRE resizes via the OSDFM API.</p>
+<h3 id="checking-current-node-sizes">Checking Current Node Sizes<a class="headerlink" href="#checking-current-node-sizes" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># On the management cluster, list request-serving nodes</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ocm<span class="w"> </span>backplane<span class="w"> </span>login<span class="w"> </span><span class="nv">$CLUSTER_ID</span><span class="w"> </span>--manager
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>oc<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>-l<span class="w"> </span>hypershift.openshift.io/request-serving-node<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-o<span class="w"> </span>wide
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Check which node pair needs resizing (from alert)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># The alert body contains: node_name, mc_cluster_id, hcp_cluster_name</span>
+</span></code></pre></div>
+<h3 id="resize-procedure">Resize Procedure<a class="headerlink" href="#resize-procedure" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MC_ID</span><span class="o">=</span><span class="s2">&quot;&lt;management-cluster-osdfm-id&gt;&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_PAIR_ID</span><span class="o">=</span><span class="s2">&quot;&lt;node-pair-id-from-alert&gt;&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NEW_SIZE</span><span class="o">=</span><span class="s2">&quot;large&quot;</span><span class="w">  </span><span class="c1"># small, medium, large, xlarge</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Request resize via OSDFM</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>ocm<span class="w"> </span>patch<span class="w"> </span>/api/osd_fleet_mgmt/v1/management_clusters/<span class="nv">$MC_ID</span>/node_pools/<span class="nv">$NODE_PAIR_ID</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span>--body<span class="o">=</span><span class="s1">&#39;{&quot;instance_type&quot;: &quot;&#39;</span><span class="nv">$NEW_SIZE</span><span class="s1">&#39;&quot;}&#39;</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Alternative: osdctl</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>osdctl<span class="w"> </span>hcp<span class="w"> </span>resize-request-serving-nodes<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--mc-id<span class="w"> </span><span class="nv">$MC_ID</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>--node-pair<span class="w"> </span><span class="nv">$NODE_PAIR_ID</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>--size<span class="w"> </span><span class="nv">$NEW_SIZE</span>
+</span></code></pre></div>
+</div>
+<p>The resize process:
+1. Provisions new nodes at the larger size
+2. Drains HCP pods from old nodes
+3. Schedules HCPs on the new nodes
+4. Terminates old nodes</p>
+<p>Expected duration: <strong>10–30 minutes</strong> depending on HCP count and etcd volume migration time.</p>
+<hr />
+<h2 id="request-serving-autoscaling">Request Serving Autoscaling<a class="headerlink" href="#request-serving-autoscaling" title="Permanent link">&para;</a></h2>
+<p>The autoscaling system recommends resizes before the alert fires. It uses VPA (VerticalPodAutoscaler) recommendations:</p>
+<pre class="mermaid"><code>flowchart TD
+    VPA["VPA\n(per HCP pod metrics)"]
+    RA["RequestServingAutoscaler\n(aggregates VPA recs)"]
+    OSDFM["OSDFM API\n(resize trigger)"]
+    ALERT["RequestServingNodesNeedUpscale\n(alert if action needed &gt; 1 hour)"]
+
+    VPA --&gt;|"CPU/memory recommendations"| RA
+    RA --&gt;|"aggregate across HCPs\non node pair"| OSDFM
+    OSDFM --&gt;|"if insufficient capacity"| ALERT
+
+    style VPA fill:#e3f2fd,color:#0d47a1
+    style RA fill:#ede7f6,color:#4a148c
+    style OSDFM fill:#e8f5e9,color:#1b5e20
+    style ALERT fill:#ffebee,color:#b71c1c</code></pre>
+<h3 id="autoscaling-states">Autoscaling States<a class="headerlink" href="#autoscaling-states" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Underprovisioned</code></td>
+<td>Node pair needs upsize</td>
+</tr>
+<tr>
+<td><code>Overprovisioned</code></td>
+<td>Node pair could be downsized</td>
+</tr>
+<tr>
+<td><code>Optimal</code></td>
+<td>Resources match HCP load</td>
+</tr>
+<tr>
+<td><code>ResizeRequested</code></td>
+<td>Resize in progress</td>
+</tr>
+<tr>
+<td><code>ResizeFailed</code></td>
+<td>Resize attempt failed (check OSDFM logs)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="checking-autoscaling-status">Checking Autoscaling Status<a class="headerlink" href="#checking-autoscaling-status" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Check the autoscaling recommendation for a node pair</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ocm<span class="w"> </span>get<span class="w"> </span>/api/osd_fleet_mgmt/v1/management_clusters/<span class="nv">$MC_ID</span>/node_pools/<span class="nv">$NODE_PAIR_ID</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;[.current_instance_type, .recommended_instance_type, .autoscaling_status] | @tsv&#39;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># List all node pairs across an MC</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>ocm<span class="w"> </span>get<span class="w"> </span>/api/osd_fleet_mgmt/v1/management_clusters/<span class="nv">$MC_ID</span>/node_pools<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.items[] | [.id, .current_instance_type, .recommended_instance_type, .autoscaling_status] | @tsv&#39;</span>
 </span></code></pre></div>
 <hr />
-<h2 id="observability-operator-obo-and-monitoringstack">Observability Operator (OBO) and MonitoringStack<a class="headerlink" href="#observability-operator-obo-and-monitoringstack" title="Permanent link">&para;</a></h2>
-<p>The <strong>Observability Operator (OBO)</strong> manages the metrics pipeline within each HCP namespace using a <code>MonitoringStack</code> CR.</p>
-<pre class="mermaid"><code>graph LR
-    OBO["Observability Operator\n(on MC)"]
-    MS["MonitoringStack CR\n(in HCP namespace)"]
-    PROM["Prometheus\n(in HCP namespace)"]
-    RULE["PrometheusRule CRs\n(alert rules)"]
-    SEND["RemoteWrite\n→ RHOBS endpoint"]
-
-    OBO --&gt;|"reconciles"| MS
-    MS --&gt;|"deploys"| PROM
-    PROM --&gt;|"scrapes"| RULE
-    PROM --&gt;|"remote_write"| SEND
-    SEND --&gt;|"pushes metrics"| RHOBS["RHOBS"]
-
-    style RHOBS fill:#ede7f6,color:#4a148c</code></pre>
-<p>The <code>MonitoringStack</code> CR configures:
-- Prometheus retention (usually short — data is pushed, not stored)
-- RemoteWrite endpoint (RHOBS ingress URL + auth token)
-- Scrape targets (the HCP components)</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># View MonitoringStack in an HCP namespace</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>oc<span class="w"> </span>get<span class="w"> </span>monitoringstack<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NS</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>oc<span class="w"> </span>describe<span class="w"> </span>monitoringstack<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HCP_NS</span><span class="w"> </span><span class="nv">$STACK_NAME</span>
+<h2 id="non-serving-node-resize">Non-Serving Node Resize<a class="headerlink" href="#non-serving-node-resize" title="Permanent link">&para;</a></h2>
+<p>Non-serving nodes (where the HyperShift Operator, ACM, and other MC operators run) are sized differently — they're part of the standard MC MachineSets.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Check MC worker nodes (non-serving)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>oc<span class="w"> </span>get<span class="w"> </span>machinesets<span class="w"> </span>-n<span class="w"> </span>openshift-machine-api
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Scale a MachineSet for the MC</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>oc<span class="w"> </span>scale<span class="w"> </span>machineset<span class="w"> </span><span class="nv">$MS_NAME</span><span class="w"> </span>-n<span class="w"> </span>openshift-machine-api<span class="w"> </span>--replicas<span class="o">=</span><span class="m">5</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Or patch the machineset&#39;s replica count</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>oc<span class="w"> </span>patch<span class="w"> </span>machineset<span class="w"> </span><span class="nv">$MS_NAME</span><span class="w"> </span>-n<span class="w"> </span>openshift-machine-api<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span>--type<span class="o">=</span>merge<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;spec&quot;:{&quot;replicas&quot;:5}}&#39;</span>
 </span></code></pre></div>
-<hr />
-<h2 id="data-plane-metrics-the-push-model">Data Plane Metrics: The Push Model<a class="headerlink" href="#data-plane-metrics-the-push-model" title="Permanent link">&para;</a></h2>
-<p>Worker node metrics can't be pulled by RHOBS (the DP is in a separate VPC). Instead, a <strong>push model</strong> over PrivateLink is used.</p>
-<pre class="mermaid"><code>sequenceDiagram
-    participant PROM as Prometheus&lt;br/&gt;(on worker nodes)
-    participant MF as metrics-forwarder&lt;br/&gt;(DaemonSet on workers)
-    participant PL as PrivateLink Proxy&lt;br/&gt;(in customer VPC)
-    participant RHOBS as RHOBS Ingestor
-
-    PROM-&gt;&gt;MF: Scrape + buffer metrics
-    MF-&gt;&gt;PL: HTTPS POST (remote_write) via PrivateLink
-    PL-&gt;&gt;RHOBS: Forward to RHOBS ingestion endpoint
-    RHOBS--&gt;&gt;MF: 204 OK</code></pre>
-<ul>
-<li><code>metrics-forwarder</code> runs as a DaemonSet on worker nodes</li>
-<li>Each forwarder has a certificate provisioned via the hosted cluster's CA</li>
-<li>Traffic routes through the same PrivateLink endpoint used by the kubelet</li>
-<li>Zero egress clusters use this exclusively — no internet access required</li>
-</ul>
-<hr />
-<h2 id="alerting-architecture">Alerting Architecture<a class="headerlink" href="#alerting-architecture" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>graph LR
-    RHOBS[("RHOBS\n(Thanos Ruler)")]
-    RULES["Alert Rule Files\n(stored in RHOBS)"]
-    AM["RHOBS Alertmanager"]
-    PD_HIGH["PagerDuty\n(Critical Team)"]
-    PD_LOW["PagerDuty\n(Warning Team)"]
-    DEAD["Dead Man's Switch\n(always-firing alert)"]
-
-    RHOBS --&gt;|"evaluate rules"| RULES
-    RULES --&gt;|"fire alerts"| AM
-    AM --&gt;|"severity: critical"| PD_HIGH
-    AM --&gt;|"severity: warning"| PD_LOW
-    RHOBS --&gt;|"heartbeat"| DEAD
-
-    style RHOBS fill:#ede7f6,color:#4a148c
-    style AM fill:#ffebee,color:#b71c1c
-    style PD_HIGH fill:#ffebee,color:#b71c1c
-    style PD_LOW fill:#fff3e0,color:#bf360c</code></pre>
-<h3 id="alert-rule-categories">Alert Rule Categories<a class="headerlink" href="#alert-rule-categories" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>File Pattern</th>
-<th>Examples</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cluster health</td>
-<td><code>cluster-*.yaml</code></td>
-<td><code>HostedClusterAvailable</code>, <code>HostedClusterDegraded</code></td>
-</tr>
-<tr>
-<td>etcd</td>
-<td><code>etcd-*.yaml</code></td>
-<td><code>EtcdHighNumberOfLeaderChanges</code>, <code>EtcdNoLeader</code></td>
-</tr>
-<tr>
-<td>API server</td>
-<td><code>kube-apiserver-*.yaml</code></td>
-<td><code>KubeAPIErrorBudgetBurn</code>, <code>KubeAPILatencyHigh</code></td>
-</tr>
-<tr>
-<td>Node pool</td>
-<td><code>nodepool-*.yaml</code></td>
-<td><code>NodePoolDegraded</code>, <code>NodePoolNotScaling</code></td>
-</tr>
-<tr>
-<td>Konnectivity</td>
-<td><code>konnectivity-*.yaml</code></td>
-<td><code>KonnectivityServerDown</code></td>
-</tr>
-<tr>
-<td>Capacity</td>
-<td><code>capacity-*.yaml</code></td>
-<td><code>RequestServingNodePoolLow</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="alert-severity-routing">Alert Severity Routing<a class="headerlink" href="#alert-severity-routing" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Severity</th>
-<th>PagerDuty team</th>
-<th>Response SLA</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>critical</code></td>
-<td>On-call (24/7)</td>
-<td>Immediate</td>
-</tr>
-<tr>
-<td><code>warning</code></td>
-<td>Engineering</td>
-<td>Business hours</td>
-</tr>
-<tr>
-<td><code>info</code></td>
-<td>(no page)</td>
-<td>Dashboards only</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="alert-graduation-pipeline">Alert Graduation Pipeline<a class="headerlink" href="#alert-graduation-pipeline" title="Permanent link">&para;</a></h2>
-<p>New alerts don't go directly to <code>critical</code>. They go through a graduation pipeline to reduce alert fatigue:</p>
-<pre class="mermaid"><code>graph LR
-    SOAK["Soaking\n(monitoring only,\nnot paging)"]
-    WARN["Warning\n(pages warning team)"]
-    CRIT["Critical\n(pages on-call)"]
-
-    SOAK --&gt;|"No false positives\nafter 2 weeks"| WARN
-    WARN --&gt;|"Actionable + reliable\nafter 2 weeks"| CRIT
-    WARN --&gt;|"False positive"| SOAK</code></pre>
-<div class="admonition tip">
-<p class="admonition-title">Before escalating an alert issue</p>
-<p>Check if the alert is in soaking or warning phase — it may be a known-unreliable alert that's being tuned.</p>
+<div class="admonition warning">
+<p class="admonition-title">Coordinate with OSDFM</p>
+<p>Changes to MC MachineSets should be coordinated with the OSD Fleet Manager team to avoid drift between OSDFM's desired state and actual cluster state.</p>
 </div>
 <hr />
-<h2 id="automatic-alert-suppression">Automatic Alert Suppression<a class="headerlink" href="#automatic-alert-suppression" title="Permanent link">&para;</a></h2>
-<p>When a cluster is intentionally degraded (e.g., during maintenance), alerts can be automatically suppressed:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Suppress all alerts for a cluster</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>oc<span class="w"> </span>annotate<span class="w"> </span>hostedcluster<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HC_NS</span><span class="w"> </span><span class="nv">$CLUSTER_NAME</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>hypershift.openshift.io/disable-cluster-alerts<span class="o">=</span><span class="nb">true</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Remove suppression</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>oc<span class="w"> </span>annotate<span class="w"> </span>hostedcluster<span class="w"> </span>-n<span class="w"> </span><span class="nv">$HC_NS</span><span class="w"> </span><span class="nv">$CLUSTER_NAME</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span>hypershift.openshift.io/disable-cluster-alerts-
+<h2 id="node-affinity-and-tolerations-for-hcp-pods">Node Affinity and Tolerations for HCP Pods<a class="headerlink" href="#node-affinity-and-tolerations-for-hcp-pods" title="Permanent link">&para;</a></h2>
+<p>HCP pods use affinity rules and tolerations to stay on request-serving nodes:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># All KAS and etcd pods have:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">tolerations</span><span class="p">:</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hypershift.openshift.io/request-serving-node&quot;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Exists&quot;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">effect</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NoSchedule&quot;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nt">affinity</span><span class="p">:</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nt">nodeAffinity</span><span class="p">:</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nt">requiredDuringSchedulingIgnoredDuringExecution</span><span class="p">:</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">      </span><span class="nt">nodeSelectorTerms</span><span class="p">:</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchExpressions</span><span class="p">:</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hypershift.openshift.io/request-serving-node</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">              </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">In</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">              </span><span class="nt">values</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;true&quot;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nt">preferredDuringSchedulingIgnoredDuringExecution</span><span class="p">:</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">weight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="nt">preference</span><span class="p">:</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">          </span><span class="nt">matchExpressions</span><span class="p">:</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hypershift.openshift.io/cluster</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">              </span><span class="nt">operator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">In</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">              </span><span class="nt">values</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;&lt;cluster-id&gt;&quot;</span><span class="p p-Indicator">]</span>
 </span></code></pre></div>
-<p>When <code>hypershift_cluster_alerts_disabled</code> metric is <code>1</code>, the RHOBS Alertmanager inhibition rules suppress all HCP-specific alerts for that cluster.</p>
-<hr />
-<h2 id="querying-metrics-in-rhobs">Querying Metrics in RHOBS<a class="headerlink" href="#querying-metrics-in-rhobs" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Via Grafana (preferred for dashboards)</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># Use the RHOBS Grafana instance for your environment</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Via promtool / curl (for quick checks)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="s2">&quot;https://rhobs.example.com/api/v1/query?query=up{_id=&#39;</span><span class="nv">$CLUSTER_ID</span><span class="s2">&#39;}&quot;</span>
-</span></code></pre></div>
-<h3 id="useful-queries">Useful Queries<a class="headerlink" href="#useful-queries" title="Permanent link">&para;</a></h3>
-<div class="language-promql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Is the HCP available?</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">hypershift_cluster_available</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># etcd leader changes in the last hour</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kr">increase</span><span class="o">(</span><span class="nv">etcd_server_leader_changes_seen_total</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}[</span><span class="s">1h</span><span class="p">]</span><span class="o">)</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># kube-apiserver request latency (p99)</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kr">histogram_quantile</span><span class="o">(</span><span class="mf">0.99</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">(</span><span class="nv">le</span><span class="o">)</span><span class="w"> </span><span class="o">(</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="kr">rate</span><span class="o">(</span><span class="nv">apiserver_request_duration_seconds_bucket</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}[</span><span class="s">5m</span><span class="p">]</span><span class="o">)</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="o">))</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Worker node memory usage</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="k">sum</span><span class="o">(</span><span class="nv">node_memory_MemUsed_bytes</span><span class="p">{</span><span class="nl">_id</span><span class="o">=</span><span class="p">&quot;</span><span class="s">$CLUSTER_ID</span><span class="p">&quot;}</span><span class="o">)</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">(</span><span class="nv">instance</span><span class="o">)</span>
-</span></code></pre></div>
+<p>The cluster-specific preference (<code>preferredDuringScheduling</code>) keeps all pods for one HCP on the same node pair (for co-location benefits and Konnectivity efficiency).</p>
 
 
 
