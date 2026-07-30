@@ -140,7 +140,7 @@ oc exec -n $CP_NS etcd-0 -- \
 - 3 replicas for high availability, each with 5 containers
 - Runs on dedicated **request-serving nodes** (see [Scheduling](scheduling.md))
 - Each pod has 5 containers: `kube-apiserver`, `apply-bootstrap`, `audit-logs-sidecar`, `oas-kube-aggregator`, `konnectivity-server-proxy`
-- The `apply-bootstrap` container is used for [breakglass access](operations.md#emergency-ssm--crictl-when-api-is-down)
+- The `apply-bootstrap` container is used for breakglass access (see [Operations Reference](operations.md))
 
 ---
 
